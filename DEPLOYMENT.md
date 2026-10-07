@@ -10,7 +10,7 @@ Market fluctuations compare actual AGMARKNET mean prices and arrivals between tw
 
 The planner calculates horizon demand, days of stock cover, gaps, parent transfers capped by available stock and regional free space, truck counts, round-trip fuel cost and change versus an entered baseline. Strike effects are an explicit linear availability assumption, not a learned causal estimate. Stock reflects the current ledger; the plan reference date does not reconstruct historical inventory. Every planning run is saved with inputs and assumptions and can be retrieved from `/v1/operations/plans`. It never executes a movement automatically.
 
-Automatic deployment is configured in `.github/workflows/deploy-checks.yaml` and `render.yaml`: pushes to `main` trigger lint, warehouse/scenario integration tests, a Docker build and a production-mode health/authentication smoke test. Render's `autoDeployTrigger: checksPass` waits for linked branch checks before deploying. These are configuration files, not an activated cloud pipeline: there is no repository remote or hosting account connected on this machine. Linux container checks will run once the project is pushed to GitHub. Historical research/API replay tests additionally require local datasets and are run locally, rather than being represented as dataset-free CI checks.
+Automatic deployment is configured in `.github/workflows/deploy-checks.yaml` and `render.yaml`: pushes to `main` trigger lint, warehouse/scenario integration tests, a Docker build and a production-mode health/authentication smoke test. Render's `autoDeployTrigger: checksPass` waits for linked branch checks before deploying. The private repository is connected at https://github.com/AaslinFCR/reliable-causal-supply-chain. Linux integration tests, Docker build and production-container health/authentication checks passed in GitHub Actions run 37651745549. The hosting provider is not connected yet, so no public application URL exists. Historical research/API replay tests additionally require local datasets and are run locally, rather than being represented as dataset-free CI checks.
 
 To activate, provide the GitHub repository URL and connect that repository in the chosen Render account. Configure the Blueprint once and review paid resources before creation. Subsequent changes to the linked `main` branch can deploy automatically after checks pass. Protect the branch and require the `application` check before merging. Provider behavior is documented in [Render's Blueprint reference](https://render.com/docs/blueprint-spec) and [GitHub's Python CI guide](https://docs.github.com/en/actions/tutorials/build-and-test-code/python).
 
@@ -47,11 +47,11 @@ docker compose logs -f app
 
 The browser address remains http://127.0.0.1:8000. Compose mounts the downloaded observations read-only and preserves application state in `app-data`. `docker compose down` preserves the volume; do not add `-v` unless you intend to delete stored outcomes.
 
-Docker is unavailable on the current machine, so the image build has not been executed here. The application itself is tested on Python 3.12 under Windows. Linux image execution and resource limits require verification on the target host.
+Docker is unavailable on the current Windows machine. The Linux image was successfully built and started in GitHub Actions run 37651745549; health and production authentication checks passed. Resource sizing and persistent-disk behavior still require verification on the hosting target.
 
 ## Cloud deployment
 
-`render.yaml` defines a single Docker web service, health endpoint, generated API key and persistent 1 GB disk. It requests a paid starter service; review the provider's current price before creating resources. No cloud account, paid service or public deployment was created during this implementation.
+`render.yaml` defines a single Docker web service, health endpoint, generated API key and persistent 1 GB disk. It requests a paid starter service; review the provider's current price before creating resources. The GitHub repository and automatic checks are active. No hosting account, paid service or public application deployment was created during this implementation.
 
 1. Place the project in a private Git repository accessible to your Render account. Keep `.env`, `var`, raw data and processed datasets out of Git.
 2. In Render, create a Blueprint using this repository. Review the service and disk charges, then deploy.

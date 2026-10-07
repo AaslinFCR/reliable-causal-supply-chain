@@ -59,7 +59,7 @@
     "tests\\test_api.py": "93c50139642599cb6b10999353c960448fbfbf3fe518f8adaf4eeb0d99e5dec5",
     "tests\\test_operations.py": "66531d047ffe8d7e98db5e798e8fc18cd59137267813b3c3db66a683ea42d1e3",
     "tests\\test_research.py": "e3cefe95068409a090a6eff1cb285807081345109109120789bd174284bf282a",
-    "scripts\\build_delivery.py": "3033df5fad942e5c5d805069967ba3c93b232fc239160bb25af5cfae468e2d99",
+    "scripts\\build_delivery.py": "767d139d92ba8dd5be3a87ce5c5dd9e5bad3c4bbcd0b6ebde11faf833a1cd4cf",
     "scripts\\inspect_idp.py": "63a9bb5eea2f6bff982eeaab3f651d5de6e2c9ae34fb904b478ee18a632b5a8d",
     "scripts\\inspect_sources.py": "65a5c77634c169568f918896851105551017f4cec6194574ee2da35f8ab87119",
     "scripts\\probe_ceda.py": "38bdf5d3d47a75bcfa21eeecd7da91aa019e44d93f2d7dfa5176c804d90c6b8e",
@@ -67,5 +67,14 @@
     "scripts\\probe_official.py": "64a3399d9acb096e992fcf5758460a80bd1803e31a838b12e6e804e43e716419",
     "scripts\\verify_deployment.py": "1a0451f228a11a497734000aa4bf1701dae7dfd92b4b136295fbc7148db9ffc4",
     "scripts\\verify_reproducibility.py": "37bd4904e31e0164e242450b3ef642b530d9a01cc9f04e57c66e9583da6ddbe3"
+  },
+  "github_ci": {
+    "url": "https://github.com/AaslinFCR/reliable-causal-supply-chain/actions/runs/37651745549",
+    "tested_commit": "81d1a59622d6a5b46aa0d057667cb320c28baac9",
+    "status": "success",
+    "linux_operations_tests": true,
+    "docker_build": true,
+    "production_container_health_and_authentication": true,
+    "public_hosting_connected": false
   }
 }

@@ -16,3 +16,7 @@ var/
 reliable-causal-supply-chain.zip
 reports/idp_*
 reports/official_probe.json
+**/probe_*.json
+**/official_probe.json
+**/source_inspection.txt
+**/idp_*
