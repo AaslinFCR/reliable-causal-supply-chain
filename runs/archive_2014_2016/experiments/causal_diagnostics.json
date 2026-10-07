@@ -1,0 +1,53 @@
+{
+  "interpretation": "Exploratory diagnostics, not proof of no unmeasured confounding.",
+  "unadjusted_delay_contrast_carting_minus_ftl": 0.5517345384483128,
+  "adjusted_mean_contrast": 0.17902775487940145,
+  "permuted_treatment_mean_contrast": 0.046878533779148794,
+  "earlier_subset_mean_contrast": 0.32180273696764283,
+  "omit_retrospective_distance_mean_contrast": 0.5436537719931135,
+  "unmeasured_bias_sweep": [
+    {
+      "additive_bias_delay_factor": 0.0,
+      "mean_contrast_after_bias": 0.17902775487940145
+    },
+    {
+      "additive_bias_delay_factor": 0.1,
+      "mean_contrast_after_bias": 0.07902775487940145
+    },
+    {
+      "additive_bias_delay_factor": 0.25,
+      "mean_contrast_after_bias": -0.07097224512059855
+    },
+    {
+      "additive_bias_delay_factor": 0.5,
+      "mean_contrast_after_bias": -0.3209722451205985
+    },
+    {
+      "additive_bias_delay_factor": 1.0,
+      "mean_contrast_after_bias": -0.8209722451205985
+    }
+  ],
+  "bias_sweep_caveat": "Illustrative additive-bias scenario, not a formal identification bound or validated confounding model.",
+  "random_common_cause": "Not used: adds invented covariates and cannot validate this observational design.",
+  "train_rows": 8256,
+  "purged_unresolved_train_trips": 356,
+  "test_rows": 2296,
+  "test_overlap_rows": 749,
+  "test_overlap_fraction": 0.32621951219512196,
+  "test_propensity_quantiles": {
+    "0": 0.0007019077208952561,
+    "0.05": 0.005590581213331501,
+    "0.5": 0.15323643630693196,
+    "0.95": 0.9966844900698925,
+    "1.0": 0.9998304792733194
+  },
+  "empirical_support_pass": true,
+  "verified_predispatch_covariates": false,
+  "automation_supported": false,
+  "automation_reason": "No verified pre-dispatch causal covariates, unmeasured shipment load, no intervention cost data; causal identification not established.",
+  "bootstrap_note": "Model intervals from training-date cluster bootstrap; omit unmeasured-confounding uncertainty.",
+  "independent_test_dates": 4,
+  "gate_counts": {
+    "RED": 2296
+  }
+}

@@ -1,0 +1,42 @@
+name: Deployment checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  application:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-runtime.txt
+      - name: Install application and checks
+        run: pip install -r requirements-runtime.txt pytest==8.3.4 httpx==0.28.1 ruff==0.16.10
+      - name: Lint
+        run: python run.py ruff check scrc tests scripts run.py
+      - name: Warehouse and scenario integration tests
+        run: python run.py pytest -q tests/test_operations.py
+      - name: Build deployment image
+        run: docker build -t supplychain-ci .
+      - name: Start and verify production container
+        shell: bash
+        run: |
+          docker run -d --name supplychain-ci -p 127.0.0.1:8000:8000 -e DEPLOY_ENV=production -e SUPPLYCHAIN_API_KEY="$(openssl rand -hex 32)" supplychain-ci
+          ready=false
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8000/health/ready; then ready=true; break; fi
+            sleep 2
+          done
+          if [ "$ready" != true ]; then docker logs supplychain-ci; exit 1; fi
+          test "$(curl --silent -o /dev/null -w '%{http_code}' http://127.0.0.1:8000/v1/operations/inventory)" = 401
+      - name: Container logs on failure
+        if: failure()
+        run: docker logs supplychain-ci || true

@@ -1,0 +1,14 @@
+{
+  "observed_utc": "2026-10-07T15:28:17.668567+00:00",
+  "job": [
+    16,
+    3,
+    2021,
+    5
+  ],
+  "cooldown_seconds": 900,
+  "headers": {
+    "date": "Wed, 07 Oct 2026 15:28:17 GMT"
+  },
+  "retry": 1
+}

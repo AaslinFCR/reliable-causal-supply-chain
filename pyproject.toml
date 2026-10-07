@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reliable-causal-supply-chain"
+version = "0.1.0"
+description = "Real-data research evaluation of uncertainty and observational logistics policies"
+requires-python = ">=3.11"
+dependencies = ["numpy", "pandas", "scipy", "scikit-learn", "lightgbm", "pyarrow", "PyYAML", "matplotlib", "requests"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "black"]
+deploy = ["fastapi==0.142.2", "uvicorn==0.54.0"]
+api-test = ["httpx==0.28.1"]
+
+[tool.setuptools.packages.find]
+include = ["scrc*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

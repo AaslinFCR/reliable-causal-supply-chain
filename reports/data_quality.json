@@ -1,0 +1,10 @@
+{
+  "observed_rows": 59648,
+  "model_eligible_rows": 58614,
+  "observations_excluded_for_insufficient_past_history_or_zero_baseline": 1034,
+  "missing_calendar_rows": 10374,
+  "duplicate_market_date_keys": 0,
+  "negative_arrivals": 0,
+  "nonpositive_prices": 0,
+  "interpretation": "Reporting completeness is descriptive; unavailable dates are never zero-filled or scored as observations."
+}

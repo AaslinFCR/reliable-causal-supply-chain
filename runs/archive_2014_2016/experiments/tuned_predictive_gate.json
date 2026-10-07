@@ -1,0 +1,8 @@
+{
+  "tau_width": 10.0,
+  "tau_shift": 0.4,
+  "n": 6088,
+  "acceptance": 1.0,
+  "coverage": 0.9039093298291722,
+  "feasible": true
+}

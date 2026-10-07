@@ -1,0 +1,22 @@
+# Creates paid resources only after deployment in your Render account.
+services:
+  - type: web
+    name: reliable-supply-chain
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health/ready
+    numInstances: 1
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: DEPLOY_ENV
+        value: production
+      - key: SUPPLYCHAIN_API_KEY
+        generateValue: true
+      - key: DATABASE_PATH
+        value: /app/var/application.sqlite
+      - key: SEED_CSV
+        value: /app/var/seed.csv
+    disk:
+      name: supply-chain-data
+      mountPath: /app/var
+      sizeGB: 1

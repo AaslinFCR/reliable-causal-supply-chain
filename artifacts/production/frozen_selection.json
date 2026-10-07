@@ -1,0 +1,445 @@
+{
+  "vocabulary": {
+    "state": [
+      "Uttar Pradesh"
+    ],
+    "market": [
+      "Achalda APMC",
+      "Auraiya APMC",
+      "Bahraich APMC",
+      "Basti APMC",
+      "Bindki APMC",
+      "Chandoli APMC",
+      "Fatehpur APMC",
+      "Gazipur APMC",
+      "Ghaziabad APMC",
+      "Kayamganj APMC",
+      "Lakhimpur APMC",
+      "Lucknow APMC",
+      "Muradabad APMC",
+      "Muzzafarnagar APMC",
+      "Saharanpur APMC",
+      "Unnao APMC"
+    ],
+    "commodity": [
+      "Onion",
+      "Potato",
+      "Rice",
+      "Wheat"
+    ]
+  },
+  "features": [
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_7",
+    "lag_14",
+    "lag_21",
+    "lag_28",
+    "rolling_mean",
+    "rolling_std",
+    "price_lag",
+    "mean_7",
+    "mean_14",
+    "mean_28",
+    "median_7",
+    "median_14",
+    "median_28",
+    "std_7",
+    "std_14",
+    "std_28",
+    "weekly_seasonal",
+    "price_mean_7",
+    "price_mean_28",
+    "trend_ratio",
+    "recent_ratio",
+    "weekday",
+    "month",
+    "year_day",
+    "weekday_sin",
+    "weekday_cos",
+    "season_sin",
+    "season_cos",
+    "state_code",
+    "market_code",
+    "commodity_code"
+  ],
+  "routing": {
+    "Onion": {
+      "name": "raw_l1",
+      "model_file": "model_raw_l1.txt",
+      "target": "raw",
+      "blend_weight": 1.0,
+      "validation_score": 0.1428439686368793
+    },
+    "Potato": {
+      "name": "ratio_l1",
+      "model_file": "model_ratio_l1.txt",
+      "target": "ratio",
+      "blend_weight": 1.0,
+      "validation_score": 0.1321828838492586
+    },
+    "Rice": {
+      "name": "ratio_l1",
+      "model_file": "model_ratio_l1.txt",
+      "target": "ratio",
+      "blend_weight": 1.0,
+      "validation_score": 0.13670070459598782
+    },
+    "Wheat": {
+      "name": "raw_l1_small",
+      "model_file": "model_raw_l1_small.txt",
+      "target": "raw",
+      "blend_weight": 1.0,
+      "validation_score": 0.19177197419322695
+    }
+  },
+  "nominal_coverage": 0.95,
+  "training_end": "2023-09-30",
+  "calibration_start": "2023-10-01",
+  "calibration_end": "2023-12-31",
+  "test_start": "2024-01-01",
+  "test_end": "2024-03-31",
+  "model_data_cutoff": "2023-12-31",
+  "selection_rule": "Per commodity: minimum mean rolling-fold WAPE + 0.25 * fold WAPE standard deviation; ties use mean RMSE. Three expanding validation quarters in 2023. No 2024 records used for fitting or selection.",
+  "scope": {
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "commodities": [
+      "Onion",
+      "Potato",
+      "Rice",
+      "Wheat"
+    ]
+  },
+  "frozen_before_forward_acquisition_utc": "2026-10-07T15:55:50.296869+00:00",
+  "conformal_quantiles": {
+    "Uttar Pradesh|Onion": 0.5761386523321935,
+    "Uttar Pradesh|Potato": 0.5299617416337168,
+    "Uttar Pradesh|Rice": 0.49059212256948503,
+    "Uttar Pradesh|Wheat": 0.6136583597135771
+  },
+  "references": {
+    "Uttar Pradesh|Achalda APMC|Onion": {
+      "median_arrivals": 3.0,
+      "median_price": 1530.0,
+      "rows": 820
+    },
+    "Uttar Pradesh|Achalda APMC|Potato": {
+      "median_arrivals": 12.0,
+      "median_price": 970.0,
+      "rows": 819
+    },
+    "Uttar Pradesh|Achalda APMC|Rice": {
+      "median_arrivals": 8.0,
+      "median_price": 2400.0,
+      "rows": 814
+    },
+    "Uttar Pradesh|Achalda APMC|Wheat": {
+      "median_arrivals": 15.0,
+      "median_price": 2030.0,
+      "rows": 813
+    },
+    "Uttar Pradesh|Auraiya APMC|Onion": {
+      "median_arrivals": 7.5,
+      "median_price": 1520.0,
+      "rows": 829
+    },
+    "Uttar Pradesh|Auraiya APMC|Potato": {
+      "median_arrivals": 50.0,
+      "median_price": 977.5,
+      "rows": 828
+    },
+    "Uttar Pradesh|Auraiya APMC|Rice": {
+      "median_arrivals": 30.0,
+      "median_price": 2390.0,
+      "rows": 825
+    },
+    "Uttar Pradesh|Auraiya APMC|Wheat": {
+      "median_arrivals": 150.0,
+      "median_price": 2040.0,
+      "rows": 819
+    },
+    "Uttar Pradesh|Bahraich APMC|Onion": {
+      "median_arrivals": 48.5,
+      "median_price": 1600.0,
+      "rows": 827
+    },
+    "Uttar Pradesh|Bahraich APMC|Potato": {
+      "median_arrivals": 84.0,
+      "median_price": 1100.0,
+      "rows": 823
+    },
+    "Uttar Pradesh|Bahraich APMC|Rice": {
+      "median_arrivals": 350.0,
+      "median_price": 2475.0,
+      "rows": 817
+    },
+    "Uttar Pradesh|Bahraich APMC|Wheat": {
+      "median_arrivals": 205.0,
+      "median_price": 2030.0,
+      "rows": 814
+    },
+    "Uttar Pradesh|Basti APMC|Onion": {
+      "median_arrivals": 38.0,
+      "median_price": 1600.0,
+      "rows": 906
+    },
+    "Uttar Pradesh|Basti APMC|Potato": {
+      "median_arrivals": 140.0,
+      "median_price": 1065.0,
+      "rows": 906
+    },
+    "Uttar Pradesh|Basti APMC|Rice": {
+      "median_arrivals": 100.0,
+      "median_price": 2535.0,
+      "rows": 803
+    },
+    "Uttar Pradesh|Basti APMC|Wheat": {
+      "median_arrivals": 170.0,
+      "median_price": 2015.0,
+      "rows": 803
+    },
+    "Uttar Pradesh|Bindki APMC|Onion": {
+      "median_arrivals": 9.5,
+      "median_price": 1500.0,
+      "rows": 814
+    },
+    "Uttar Pradesh|Bindki APMC|Potato": {
+      "median_arrivals": 31.5,
+      "median_price": 970.0,
+      "rows": 816
+    },
+    "Uttar Pradesh|Bindki APMC|Rice": {
+      "median_arrivals": 264.0,
+      "median_price": 2380.0,
+      "rows": 795
+    },
+    "Uttar Pradesh|Bindki APMC|Wheat": {
+      "median_arrivals": 270.0,
+      "median_price": 2060.0,
+      "rows": 800
+    },
+    "Uttar Pradesh|Chandoli APMC|Onion": {
+      "median_arrivals": 27.5,
+      "median_price": 1625.0,
+      "rows": 915
+    },
+    "Uttar Pradesh|Chandoli APMC|Potato": {
+      "median_arrivals": 68.0,
+      "median_price": 1060.0,
+      "rows": 915
+    },
+    "Uttar Pradesh|Chandoli APMC|Rice": {
+      "median_arrivals": 35.0,
+      "median_price": 2580.0,
+      "rows": 818
+    },
+    "Uttar Pradesh|Chandoli APMC|Wheat": {
+      "median_arrivals": 45.0,
+      "median_price": 2015.0,
+      "rows": 814
+    },
+    "Uttar Pradesh|Fatehpur APMC|Onion": {
+      "median_arrivals": 18.0,
+      "median_price": 1440.0,
+      "rows": 851
+    },
+    "Uttar Pradesh|Fatehpur APMC|Potato": {
+      "median_arrivals": 39.0,
+      "median_price": 950.0,
+      "rows": 852
+    },
+    "Uttar Pradesh|Fatehpur APMC|Rice": {
+      "median_arrivals": 19.0,
+      "median_price": 2390.0,
+      "rows": 825
+    },
+    "Uttar Pradesh|Fatehpur APMC|Wheat": {
+      "median_arrivals": 52.0,
+      "median_price": 2020.0,
+      "rows": 823
+    },
+    "Uttar Pradesh|Gazipur APMC|Onion": {
+      "median_arrivals": 30.0,
+      "median_price": 1600.0,
+      "rows": 808
+    },
+    "Uttar Pradesh|Gazipur APMC|Potato": {
+      "median_arrivals": 63.0,
+      "median_price": 1060.0,
+      "rows": 810
+    },
+    "Uttar Pradesh|Gazipur APMC|Rice": {
+      "median_arrivals": 80.0,
+      "median_price": 3005.0,
+      "rows": 811
+    },
+    "Uttar Pradesh|Gazipur APMC|Wheat": {
+      "median_arrivals": 40.0,
+      "median_price": 2015.0,
+      "rows": 806
+    },
+    "Uttar Pradesh|Ghaziabad APMC|Onion": {
+      "median_arrivals": 120.0,
+      "median_price": 1715.0,
+      "rows": 908
+    },
+    "Uttar Pradesh|Ghaziabad APMC|Potato": {
+      "median_arrivals": 200.0,
+      "median_price": 1100.0,
+      "rows": 907
+    },
+    "Uttar Pradesh|Ghaziabad APMC|Rice": {
+      "median_arrivals": 80.0,
+      "median_price": 3000.0,
+      "rows": 816
+    },
+    "Uttar Pradesh|Ghaziabad APMC|Wheat": {
+      "median_arrivals": 450.0,
+      "median_price": 2150.0,
+      "rows": 820
+    },
+    "Uttar Pradesh|Kayamganj APMC|Onion": {
+      "median_arrivals": 10.0,
+      "median_price": 1550.0,
+      "rows": 757
+    },
+    "Uttar Pradesh|Kayamganj APMC|Potato": {
+      "median_arrivals": 180.0,
+      "median_price": 880.0,
+      "rows": 765
+    },
+    "Uttar Pradesh|Kayamganj APMC|Rice": {
+      "median_arrivals": 25.0,
+      "median_price": 2390.0,
+      "rows": 743
+    },
+    "Uttar Pradesh|Kayamganj APMC|Wheat": {
+      "median_arrivals": 40.0,
+      "median_price": 2030.0,
+      "rows": 745
+    },
+    "Uttar Pradesh|Lakhimpur APMC|Onion": {
+      "median_arrivals": 100.0,
+      "median_price": 1555.0,
+      "rows": 946
+    },
+    "Uttar Pradesh|Lakhimpur APMC|Potato": {
+      "median_arrivals": 400.0,
+      "median_price": 1070.0,
+      "rows": 945
+    },
+    "Uttar Pradesh|Lakhimpur APMC|Rice": {
+      "median_arrivals": 110.0,
+      "median_price": 2350.0,
+      "rows": 809
+    },
+    "Uttar Pradesh|Lakhimpur APMC|Wheat": {
+      "median_arrivals": 750.0,
+      "median_price": 2025.0,
+      "rows": 803
+    },
+    "Uttar Pradesh|Lucknow APMC|Onion": {
+      "median_arrivals": 260.0,
+      "median_price": 1570.0,
+      "rows": 897
+    },
+    "Uttar Pradesh|Lucknow APMC|Potato": {
+      "median_arrivals": 310.0,
+      "median_price": 1070.0,
+      "rows": 904
+    },
+    "Uttar Pradesh|Lucknow APMC|Rice": {
+      "median_arrivals": 80.0,
+      "median_price": 2450.0,
+      "rows": 806
+    },
+    "Uttar Pradesh|Lucknow APMC|Wheat": {
+      "median_arrivals": 54.0,
+      "median_price": 2030.0,
+      "rows": 815
+    },
+    "Uttar Pradesh|Muradabad APMC|Onion": {
+      "median_arrivals": 65.0,
+      "median_price": 1490.0,
+      "rows": 901
+    },
+    "Uttar Pradesh|Muradabad APMC|Potato": {
+      "median_arrivals": 160.0,
+      "median_price": 995.0,
+      "rows": 902
+    },
+    "Uttar Pradesh|Muradabad APMC|Rice": {
+      "median_arrivals": 30.0,
+      "median_price": 2500.0,
+      "rows": 811
+    },
+    "Uttar Pradesh|Muradabad APMC|Wheat": {
+      "median_arrivals": 35.0,
+      "median_price": 2050.0,
+      "rows": 814
+    },
+    "Uttar Pradesh|Muzzafarnagar APMC|Onion": {
+      "median_arrivals": 20.0,
+      "median_price": 1640.0,
+      "rows": 942
+    },
+    "Uttar Pradesh|Muzzafarnagar APMC|Potato": {
+      "median_arrivals": 60.0,
+      "median_price": 1085.0,
+      "rows": 935
+    },
+    "Uttar Pradesh|Muzzafarnagar APMC|Rice": {
+      "median_arrivals": 110.0,
+      "median_price": 2960.0,
+      "rows": 813
+    },
+    "Uttar Pradesh|Muzzafarnagar APMC|Wheat": {
+      "median_arrivals": 120.0,
+      "median_price": 2120.0,
+      "rows": 818
+    },
+    "Uttar Pradesh|Saharanpur APMC|Onion": {
+      "median_arrivals": 113.0,
+      "median_price": 1625.0,
+      "rows": 902
+    },
+    "Uttar Pradesh|Saharanpur APMC|Potato": {
+      "median_arrivals": 238.0,
+      "median_price": 1080.0,
+      "rows": 901
+    },
+    "Uttar Pradesh|Saharanpur APMC|Rice": {
+      "median_arrivals": 35.0,
+      "median_price": 2950.0,
+      "rows": 820
+    },
+    "Uttar Pradesh|Saharanpur APMC|Wheat": {
+      "median_arrivals": 261.0,
+      "median_price": 2125.0,
+      "rows": 824
+    },
+    "Uttar Pradesh|Unnao APMC|Onion": {
+      "median_arrivals": 12.5,
+      "median_price": 1525.0,
+      "rows": 831
+    },
+    "Uttar Pradesh|Unnao APMC|Potato": {
+      "median_arrivals": 30.0,
+      "median_price": 1000.0,
+      "rows": 841
+    },
+    "Uttar Pradesh|Unnao APMC|Rice": {
+      "median_arrivals": 4.5,
+      "median_price": 2380.0,
+      "rows": 870
+    },
+    "Uttar Pradesh|Unnao APMC|Wheat": {
+      "median_arrivals": 53.4,
+      "median_price": 2030.0,
+      "rows": 874
+    }
+  }
+}

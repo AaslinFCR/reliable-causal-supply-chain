@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DEPLOY_ENV: local
+      DATABASE_PATH: /app/var/application.sqlite
+      SEED_CSV: /seed/deployment_observations.csv
+      SUPPLYCHAIN_API_KEY: ${SUPPLYCHAIN_API_KEY:-}
+    volumes:
+      - app-data:/app/var
+      - ./data/processed/deployment_observations.csv:/seed/deployment_observations.csv:ro
+    restart: unless-stopped
+volumes:
+  app-data:

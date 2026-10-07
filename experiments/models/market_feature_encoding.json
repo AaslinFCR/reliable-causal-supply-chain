@@ -1,0 +1,58 @@
+{
+  "features": [
+    "lag_1",
+    "lag_7",
+    "lag_14",
+    "lag_28",
+    "rolling_mean",
+    "rolling_std",
+    "price_lag",
+    "weekday",
+    "month",
+    "year_day",
+    "state_code",
+    "market_code",
+    "commodity_code"
+  ],
+  "categorical_vocabulary": {
+    "state": [
+      "Uttar Pradesh"
+    ],
+    "market": [
+      "Achalda APMC",
+      "Auraiya APMC",
+      "Bahraich APMC",
+      "Basti APMC",
+      "Bindki APMC",
+      "Chandoli APMC",
+      "Fatehpur APMC",
+      "Gazipur APMC",
+      "Ghaziabad APMC",
+      "Kayamganj APMC",
+      "Lakhimpur APMC",
+      "Lucknow APMC",
+      "Muradabad APMC",
+      "Muzzafarnagar APMC",
+      "Saharanpur APMC",
+      "Unnao APMC"
+    ],
+    "commodity": [
+      "Onion",
+      "Potato",
+      "Rice",
+      "Wheat"
+    ]
+  },
+  "unknown_category_code": -1,
+  "log1p_columns": [
+    "lag_1",
+    "lag_7",
+    "lag_14",
+    "lag_28",
+    "rolling_mean",
+    "rolling_std",
+    "price_lag"
+  ],
+  "target": "log1p(arrivals); invert with expm1 and clip below at zero",
+  "scope": "Frozen historical predictor; construct past-only features with scrc.data.panel before use."
+}

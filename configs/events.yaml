@@ -1,0 +1,24 @@
+- name: demonetisation_2016
+  start: '2016-11-09'
+  end: '2016-12-08'
+  commodity: all
+  source: https://www.rbi.org.in/commonman/english/Scripts/Notification.aspx?Id=1938
+  note: Legal tender withdrawal effective 9 November. Fixed 30-day evaluation window, not proof of a causal market effect.
+- name: rice_export_restriction_2023
+  start: '2023-07-20'
+  end: '2023-08-18'
+  commodity: Rice
+  source: https://www.pib.gov.in/PressReleasePage.aspx?PRID=1941139
+  note: Policy date verified; 30-day analysis window is a protocol choice, not a proven shift. Rice category may include unaffected varieties.
+- name: onion_minimum_export_price_2023
+  start: '2023-10-29'
+  end: '2023-11-27'
+  commodity: Onion
+  source: https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=1972618
+  note: Policy date verified; 30-day analysis window fixed before results.
+- name: onion_export_prohibition_2023
+  start: '2023-12-08'
+  end: '2023-12-31'
+  commodity: Onion
+  source: https://www.pib.gov.in/PressReleasePage.aspx?PRID=1985229
+  note: End truncated to data availability; event date does not prove distribution shift.

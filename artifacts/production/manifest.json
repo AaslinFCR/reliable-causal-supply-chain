@@ -1,0 +1,27 @@
+{
+  "model_version": "18e5692d481b0f84",
+  "files": {
+    "forecast_model.txt": "43a15b48a0c0ddd09e4a9ff2267079debb7471fed306908c9f98cf45fc74f496",
+    "forward_source_manifest.json": "371f2addaa6e898f88552a5d763f533c4061f7ff8fbe064920565304578551b7",
+    "frozen_selection.json": "5a9f89198c56dd35c7daab5fdcc767330fcfdd9b8f2ff8e954077f8434deee51",
+    "model_card.json": "201e762549045cf334004190ee34ea5438259ccd72392afbf412a3f2a9922253",
+    "model_log_l2.txt": "4811de01adefcd9021077ab3e18b3d01560155426542cc09ed23421119bccf6d",
+    "model_ratio_l1.txt": "551d9e50e5b7ad8d4177ecb039dc04091380c19ea6311b4ab29d80abf6ea4541",
+    "model_raw_l1.txt": "76307e936c6cbed1d08b7713a3806a4e74d5feb545f31ba30d6b1cafde966abf",
+    "model_raw_l1_small.txt": "37acf4b2a0bcd1b5ccfe748396c6da3db3951b86e9ae04c3dc7b581130ef2fb4",
+    "series_metrics.csv": "5d70f733bcc5e08249a40cf9cc6110bfbc032745b50e8222ad9789459d0ad6e9",
+    "test_metrics.csv": "7bffa463884c859ef815340949e707d889c80b96182f41f20320958d35516245",
+    "test_replay.parquet": "f7eddef8795ade3b897ed9ad099e9b7c4583a94398049cf22eec5807355be9e6",
+    "validation_ranking.csv": "3ae6b09390df194379a4b195ebefc91a072c2775eb7f4d5362b8e1382ad42923",
+    "validation_search.csv": "4775e95455a0baad5a53b762c0e52b80d997274aa15b09651f5bec9b2defebb0"
+  },
+  "seed_csv_sha256": "535e978482b327916fd6ee58cf50bf520ad4c2d4fa4fdca0d08a03942133d5a6",
+  "source_hashes": {
+    "scrc\\production\\features.py": "08d7a0cb8f7bdcd496f4353b940bb9e911f496262bc5cc47c4d88b69960ba6a4",
+    "scrc\\production\\service.py": "08714425ea8bafc6d6d50a842fb829dce820303794f695a402a650c3fe084782",
+    "scrc\\production\\store.py": "e3abcc85846c9bf2c12fe481e4ff6b69618b23d98aee65b7c21470c856e6d484",
+    "scrc\\production\\train.py": "92e31eb44b214e45a6b5450acb349b4d9a5a007726c1dd7d6108babc43be0d95",
+    "scrc\\production\\train_forward.py": "457aa1cb77e4b106538a37b1ed358114207cdcdf3db640b5ed8798f54ceebe8a",
+    "scrc\\production\\__init__.py": "14cedd013886f9c1ebd05adfdd8a1fd4a4f8db61c4de0a199725f49b6f567ecc"
+  }
+}

@@ -1,0 +1,6 @@
+dataset,window,method,n,mean_dr_delay_loss,loss_ci_low,loss_ci_high,estimated_gain_vs_carting,gain_ci_low,gain_ci_high,ftl_recommendation_fraction,status,automated_fraction,escalated_fraction
+Delhivery,overlap_test_only,always_carting,749,2.687328975254571,2.551976525650538,2.7726989286620864,0.0,0.0,0.0,0.0,exploratory; observational assumptions unverified,,
+Delhivery,overlap_test_only,always_ftl,749,2.8596282732147547,2.5976686693273647,3.1652147073929324,-0.1722992979601836,-0.6132381817423943,0.17108157553686046,1.0,exploratory; observational assumptions unverified,,
+Delhivery,overlap_test_only,point_effect_policy,749,2.3944217983571288,2.2977922953528163,2.4848080792674208,0.29290717689744245,0.06716844638311735,0.4836606312923247,0.5740987983978638,exploratory; observational assumptions unverified,,
+Delhivery,overlap_test_only,conservative_lower_bound_policy,749,2.615837213105391,2.590151814531226,2.6422883010679468,0.07149176214917943,-0.05106874489391846,0.1696999416480075,0.15086782376502003,exploratory; observational assumptions unverified,,
+Delhivery,test,reliability_gate,2296,,,,,,,,All actions withheld: identification precondition not met. No counterfactual gate value claimed.,0.0,1.0

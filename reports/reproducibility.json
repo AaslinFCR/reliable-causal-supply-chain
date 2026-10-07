@@ -1,0 +1,14 @@
+{
+  "identical_numerical_artifacts": true,
+  "mismatches": [],
+  "sha256": {
+    "results.csv": "7b4d1532360ec86ca3cff8582cd9e90b63582ca8658e16d284395298fb02d1c3",
+    "market_results.csv": "a1c451022b5467f67cac480e6c9d0cc980cb6230cefe9fa92d7bdfce7d2bed86",
+    "market_results_by_region.csv": "8d5d67586f400e7c5d25a4d96eaf878f04b0c6962d7f61cc7c6e0fcac790f07b",
+    "logistics_results.csv": "64b34a81a2c4669187817a2f7911addd959a496fe1b541a23116a4f1b84764bb",
+    "causal_diagnostics.json": "81e402a294ba72b81f412f882fc4498a9cad133a2181dc7d1d76730fe0f91f43",
+    "shift_detection.json": "2542811ab26a413e6013aabac0e8b04b079ba1c62355adbefa0344827431027c",
+    "threshold_sweep_validation.csv": "ddac3c6aa2b936de36cc1906d4ef0c01777d4d79dc9a54e934909989ab8bab50"
+  },
+  "scope": "Full rerun in the same installed environment and frozen real-data inputs; not an independent clean-environment replication."
+}

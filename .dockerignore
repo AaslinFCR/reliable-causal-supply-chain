@@ -1,0 +1,10 @@
+*
+!requirements-runtime.txt
+!scrc/**
+!configs/**
+!artifacts/production/**
+!experiments/causal_diagnostics.json
+!web/**
+**/__pycache__
+**/*.parquet
+**/.env

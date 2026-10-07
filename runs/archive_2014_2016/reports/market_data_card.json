@@ -1,0 +1,46 @@
+{
+  "source": "AGMARKNET historical archive by Ian Covert, original government data",
+  "documentation": "https://github.com/iancovert/Agmarknet",
+  "raw_archive_rows": 666918,
+  "invalid_rows_removed_all_states": 20345,
+  "multi_variety_extra_rows": 31105,
+  "selected_markets": 48,
+  "selected_real_observations": 51655,
+  "calendar_panel_rows": 98762,
+  "unobserved_calendar_rows": 47107,
+  "date_min": "2014-01-01",
+  "date_max": "2016-12-31",
+  "units": {
+    "arrivals": "tonnes",
+    "prices": "INR per quintal"
+  },
+  "imputation": "No source targets or prices imputed. Calendar gaps remain NaN.",
+  "aggregation": "Sum arrivals and arrivals-weighted modal price across reported varieties within each market-day; median price if arrivals zero.",
+  "selection": "Up to twelve markets per state, ranked only on January 2014\u2013June 2015 completeness; frozen JSON.",
+  "coverage_by_state_commodity": {
+    "('Karnataka', 'Rice')": 3140,
+    "('Karnataka', 'Wheat')": 3780,
+    "('Maharashtra', 'Rice')": 3200,
+    "('Maharashtra', 'Wheat')": 5151,
+    "('Uttar Pradesh', 'Rice')": 8710,
+    "('Uttar Pradesh', 'Wheat')": 8636,
+    "('West Bengal', 'Rice')": 9687,
+    "('West Bengal', 'Wheat')": 9351
+  },
+  "missingness": {
+    "state": 0,
+    "market": 0,
+    "commodity": 0,
+    "date": 0,
+    "arrivals": 0,
+    "min_price": 0,
+    "max_price": 0,
+    "modal_price": 0
+  },
+  "deviations": [
+    "Rice and wheat only: onion/potato absent from this documented archive.",
+    "2014\u20132016 instead of proposed recent years because live sources are restricted/capped.",
+    "Actual observed row count reported; no padding to the approximate 50,000 target.",
+    "Warehouse inventory, actual stock-outs and action costs absent."
+  ]
+}

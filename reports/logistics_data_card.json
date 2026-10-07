@@ -1,0 +1,38 @@
+{
+  "raw_rows": 144867,
+  "raw_trip_ids": 14817,
+  "usable_trips": 14817,
+  "start": "2018-09-12 00:00:00",
+  "end": "2018-10-03 00:00:00",
+  "route_types": {
+    "Carting": 8908,
+    "FTL": 5909
+  },
+  "aggregation": "OD-leg maximum of cumulative times/distance, summed over distinct legs to one trip.",
+  "missingness": {
+    "trip_uuid": 0,
+    "actual_time": 0,
+    "osrm_time": 0,
+    "distance": 0,
+    "legs": 0,
+    "source_name": 10,
+    "destination_name": 8,
+    "route_type": 0,
+    "trip_creation_time": 0,
+    "end_time": 0,
+    "date": 0,
+    "source_state": 10,
+    "destination_state": 8,
+    "delay_factor": 0,
+    "treatment": 0,
+    "weekday": 0,
+    "hour": 0,
+    "log_distance": 0
+  },
+  "limitations": [
+    "22 calendar days only; cannot evaluate festivals or policy shocks in 2023.",
+    "OSRM distance and aggregated endpoints are retrospective, not verified pre-dispatch variables.",
+    "No verified shipment join to AGMARKNET, action costs, shipment loads or inventory records.",
+    "Route type is observational and strongly related to trip geography/distance."
+  ]
+}

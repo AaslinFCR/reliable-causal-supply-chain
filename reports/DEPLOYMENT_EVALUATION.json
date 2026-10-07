@@ -1,0 +1,75 @@
+{
+  "routing": {
+    "Onion": {
+      "name": "raw_l1",
+      "model_file": "model_raw_l1.txt",
+      "target": "raw",
+      "blend_weight": 1.0,
+      "validation_score": 0.1428439686368793
+    },
+    "Potato": {
+      "name": "ratio_l1",
+      "model_file": "model_ratio_l1.txt",
+      "target": "ratio",
+      "blend_weight": 1.0,
+      "validation_score": 0.1321828838492586
+    },
+    "Rice": {
+      "name": "ratio_l1",
+      "model_file": "model_ratio_l1.txt",
+      "target": "ratio",
+      "blend_weight": 1.0,
+      "validation_score": 0.13670070459598782
+    },
+    "Wheat": {
+      "name": "raw_l1_small",
+      "model_file": "model_raw_l1_small.txt",
+      "target": "raw",
+      "blend_weight": 1.0,
+      "validation_score": 0.19177197419322695
+    }
+  },
+  "test_metrics": [
+    {
+      "method": "rolling_mean",
+      "n": 4965,
+      "mae": 37.96034827509409,
+      "rmse": 150.31210717310498,
+      "wape": 0.2771410569490797,
+      "smape": 0.29534095759690626,
+      "r2": 0.643979548943737
+    },
+    {
+      "method": "weekly_seasonal",
+      "n": 4965,
+      "mae": 43.49289554768691,
+      "rmse": 161.74227484320772,
+      "wape": 0.31753309939388313,
+      "smape": 0.32677358836422027,
+      "r2": 0.5877752019161724
+    },
+    {
+      "method": "log_lightgbm_same_training",
+      "n": 4965,
+      "mae": 29.946173779775677,
+      "rmse": 149.43716515282358,
+      "wape": 0.2186311409148228,
+      "smape": 0.22306159460792513,
+      "r2": 0.6481121590367871
+    },
+    {
+      "method": "deployment_champion",
+      "n": 4965,
+      "mae": 31.241811793378048,
+      "rmse": 155.37362871169242,
+      "wape": 0.2280903399166601,
+      "smape": 0.22773191552632266,
+      "r2": 0.6195990110448728,
+      "coverage": 0.919436052366566,
+      "mean_width": 156.24673430514045
+    }
+  ],
+  "version": "18e5692d481b0f84",
+  "protocol": "Per commodity: minimum mean rolling-fold WAPE + 0.25 * fold WAPE standard deviation; ties use mean RMSE. Three expanding validation quarters in 2023. No 2024 records used for fitting or selection.",
+  "frozen_before_forward_acquisition_utc": "2026-10-07T15:55:50.296869+00:00"
+}

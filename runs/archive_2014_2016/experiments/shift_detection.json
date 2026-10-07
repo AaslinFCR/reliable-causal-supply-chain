@@ -1,0 +1,10 @@
+[
+  {
+    "event": "demonetisation_2016",
+    "detected": false,
+    "delay_days": null,
+    "threshold": 0.4,
+    "outside_window_alert_rate": 0.0,
+    "caveat": "Outside-window alerts are not proven false alarms; event dates are not complete shift ground truth."
+  }
+]

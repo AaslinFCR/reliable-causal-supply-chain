@@ -1,0 +1,6 @@
+{
+  "url": "https://api.agmarknet.gov.in/v1/daily-price-arrival/filters",
+  "status": 200,
+  "response_excerpt": "{\"status\":true,\"message\":\"Filters fetched successfully\",\"data\":{\"cmdt_data\":[{\"cmdt_id\":380,\"cmdt_name\":\"Absinthe\",\"cmdt_group_id\":12},{\"cmdt_id\":571,\"cmdt_name\":\"Adulsa\",\"cmdt_group_id\":16},{\"cmdt_id\":454,\"cmdt_name\":\"Ajwain Husk\",\"cmdt_group_id\":10},{\"cmdt_id\":115,\"cmdt_name\":\"Ajwan\",\"cmdt_group_i",
+  "authentication_bypassed": false
+}

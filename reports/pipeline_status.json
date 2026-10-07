@@ -1,0 +1,36 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "stages": [
+    {
+      "stage": "1. Acquire and verify original real datasets",
+      "status": "passed",
+      "seconds": 1.09
+    },
+    {
+      "stage": "2. Clean data and prepare past-only panels",
+      "status": "passed",
+      "seconds": 17.34
+    },
+    {
+      "stage": "3. Run forecasts, conformal, drift, causal estimates, gates and reports",
+      "status": "passed",
+      "seconds": 98.2
+    },
+    {
+      "stage": "4. Run regression and leakage checks",
+      "status": "passed",
+      "seconds": 6.63
+    },
+    {
+      "stage": "5. Check lint and formatting",
+      "status": "passed",
+      "seconds": 0.59
+    },
+    {
+      "stage": "6. Package source, results and figures",
+      "status": "passed",
+      "seconds": 2.98
+    }
+  ],
+  "updated_utc": "2026-10-07T15:43:12.053275+00:00"
+}

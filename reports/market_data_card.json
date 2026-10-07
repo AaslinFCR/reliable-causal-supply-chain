@@ -1,0 +1,48 @@
+{
+  "source": "Government of India AGMARKNET public API",
+  "documentation": "https://agmarknet.gov.in/",
+  "raw_archive_rows": 547172,
+  "published_market_days": 547172,
+  "unusable_market_days": 0,
+  "selected_markets": 16,
+  "states": [
+    "Uttar Pradesh"
+  ],
+  "monthly_source_files": 144,
+  "selected_real_observations": 59648,
+  "calendar_panel_rows": 70022,
+  "unobserved_calendar_rows": 10374,
+  "date_min": "2021-01-01",
+  "date_max": "2023-12-31",
+  "commodities": [
+    "Onion",
+    "Potato",
+    "Rice",
+    "Wheat"
+  ],
+  "units": {
+    "arrivals": "metric tonnes",
+    "prices": "INR per quintal"
+  },
+  "imputation": "No source targets or prices imputed; missing calendar dates remain NaN.",
+  "aggregation": "Use published total_arrivals once per market-day; arrivals-weighted variety modal price.",
+  "selection": "Markets ranked on January 2021\u2013June 2022 commodity completeness; frozen before test evaluation.",
+  "coverage_by_state_commodity": {
+    "('Uttar Pradesh', 'Onion')": 15375,
+    "('Uttar Pradesh', 'Potato')": 15391,
+    "('Uttar Pradesh', 'Rice')": 14435,
+    "('Uttar Pradesh', 'Wheat')": 14447
+  },
+  "missingness": {
+    "state": 0,
+    "market": 0,
+    "commodity": 0,
+    "date": 0,
+    "arrivals": 0,
+    "modal_price": 0
+  },
+  "deviations": [
+    "Market arrivals are supply inflows, not observed demand or warehouse inventory.",
+    "Market observations and Delhivery trips cannot be linked to shared shipments."
+  ]
+}

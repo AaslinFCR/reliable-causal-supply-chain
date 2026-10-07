@@ -1,0 +1,58 @@
+{
+  "config_hash": "f8ce23b8cec91157fb19cf28bae84ae00b61fa3e42410677ab1ccb6834d2b601",
+  "events_hash": "c22399c98c110ea70affc857b14cbca4346f52af1afe4b41ff4034cd99484d07",
+  "python": "3.13.7",
+  "seed": 42,
+  "raw_data_hashes": {
+    "agmarknet_Rice_2014.csv": "517a4d55684ad100b642b1ac7bb46b84497a9c479660b9289a0af7d28ef3311c",
+    "agmarknet_Rice_2015.csv": "b7def08e663e3c54f5ed9219b045311ca3a979904c7f19068b2790d94895d5ad",
+    "agmarknet_Rice_2016.csv": "0d0a2a063b5c333e9e973639147537e7b4067782144a5750d3ac04d7f2d854d6",
+    "agmarknet_Wheat_2014.csv": "f0bdb45a4a721f3462da735e5a9ef3c50cfd54570ce6bdc01039b3ae24a32547",
+    "agmarknet_Wheat_2015.csv": "a80281422f3053217b3695ea8eda4011f424cac1289cb183022a780df46e1002",
+    "agmarknet_Wheat_2016.csv": "4db8ef7bef4dc0a7f83d697078a28b6e285229fa2555802f8830e06152cf2e7d",
+    "delhivery.csv": "1062cb1d666394bf9ced980db9dbc6c1601a58b1449c388a42f6d0142b69f3d9"
+  },
+  "source_code_hashes": {
+    "scrc\\__init__.py": "e988949b73404916e6dd5eadc92fb6efee1509a1eaf1fe30dc30736cf2a8e9ca",
+    "scrc\\baselines\\__init__.py": "8b1f9956b680a15f1ebb4840d562b078b2758a535a55c33acc919e6ba0e44322",
+    "scrc\\baselines\\rules.py": "3482b5a35e3031198646060fd552d806e29f18e522589c4af276869d4a1945e5",
+    "scrc\\causal\\__init__.py": "4d2f3affc7e9f5405948dd58f33b1ca1b464685913419508483a785808f60f79",
+    "scrc\\causal\\effects.py": "be09d1151e695129922431828f01487835840c7a45f21719af58f5f80c602368",
+    "scrc\\causal\\refutation.py": "2110838375178f5b5a2682be7be464fd7d85230684cb5c1c8532c9df0dbec839",
+    "scrc\\causal\\selector.py": "7652b876a0a502b619263ad4ccee70787e8e139b0b5565f78a660ed355149708",
+    "scrc\\common.py": "899e0bde89beac848c51ac8bf9136aeea9fa707c71a3ea1799034d6de875e443",
+    "scrc\\data\\__init__.py": "b316aef1253a5b8db2babdd406b06303a050c289c484fc498e631a2de55cbeac",
+    "scrc\\data\\archive.py": "644d4065919e4a31d75ee4f29bc0d94bdbc61e3c177379d1c1a585dfd1946486",
+    "scrc\\data\\build.py": "ca0a85c13f3324195cd54863c528bd18394197a9b98d2d61b0f7e7614c62e637",
+    "scrc\\data\\download.py": "f9a313021956fe9548ce80a9ed1b9a31f967d8b6da05b703f7e2e9be368ea567",
+    "scrc\\data\\download_archive.py": "8fbdb21fd5dabb632b5c727b659931233b14b3badd66c0c55dd92807b0087cf2",
+    "scrc\\data\\panel.py": "ace7917b457e2a8f8c13d3ca3c785f601d7f4b3665cbefd1e78552a1faf37bc9",
+    "scrc\\demo.py": "f35f2d21b371ad0d66c9aba3c5426f15ff8f2f98b2f37b365f79aec806d16d85",
+    "scrc\\eval\\__init__.py": "333822a93168be5e1803143ac90ab5d3ca4bc569de4b41207e6b6d9384936dd6",
+    "scrc\\eval\\metrics.py": "00a7cc9dadec94fdd50d1e239befee0c112ab3d8b4c2420ccc147e6f40c3b78c",
+    "scrc\\eval\\plots.py": "abcfa955cd4856add6ac1ac1af6ce45e924c0160ddfe27b9832aad96e4756e2a",
+    "scrc\\eval\\replay.py": "72795afeb68929c879681dc0dbf310e10433b3df1359bf1a211e1f6842c7b548",
+    "scrc\\gate\\__init__.py": "3e8e7814a9030fc3158c76b0279d4bb7380a41ed0b9a7ae0f780cd5bd1ecfd6d",
+    "scrc\\gate\\gate.py": "80363f41707f6dc335391a6778981d767f63517c9e89578895c133c4bb6291e5",
+    "scrc\\models\\__init__.py": "1598d610922684091accc9dd789c340ad77789d707d79079785b3d856490583a",
+    "scrc\\models\\conformal.py": "2b0b183fcbdd2c54facc5240bfa2543b5e3492b590ea1df13450bfbbe489ead3",
+    "scrc\\models\\forecaster.py": "dd85f53d3bb50ac60b2783797a96314c76a87c7962ccab369e6c4ef6e7450ff1",
+    "scrc\\models\\shift_detector.py": "6db95e64fa7b2371b78645cc0d590763323abc0672197399cbbf2094664ac5aa"
+  },
+  "selected_markets_hash": "23ae6a6085776d37856f2e1e7e50fd1cd56b34580aaed5f5274c8f4b29ebe1fd",
+  "package_versions": {
+    "numpy": "2.2.1",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.6.0",
+    "lightgbm": "4.7.0",
+    "pyarrow": "25.0.1",
+    "PyYAML": "6.0.3",
+    "matplotlib": "3.11.2",
+    "requests": "2.34.2"
+  },
+  "method": "Fixed historical model; rolling daily conformal feedback. Separate observational logistics holdout.",
+  "no_claims": [
+    "No achieved stock-out reduction, monetary cost savings, live execution, or guaranteed coverage under arbitrary shift."
+  ]
+}
