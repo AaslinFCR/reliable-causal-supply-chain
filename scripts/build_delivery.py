@@ -30,6 +30,7 @@ def main():
         ".gitignore",
         ".gitattributes",
         "DEPLOYMENT.md",
+        "BUSINESS_SETUP.md",
         "requirements-runtime.txt",
         "Dockerfile",
         ".dockerignore",

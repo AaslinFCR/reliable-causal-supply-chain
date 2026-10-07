@@ -1,4 +1,5 @@
 'use strict';
+const fulfillmentLink=document.createElement('a');fulfillmentLink.href='/fulfillment';fulfillmentLink.textContent='Inventory to delivery';document.querySelector('aside').insertBefore(fulfillmentLink,document.querySelector('aside a'));
 const $=id=>document.getElementById(id),num=v=>v==null?'—':Number(v).toLocaleString(undefined,{maximumFractionDigits:2});let warehouses=[],series=[];
 async function api(path,body){const headers={};if($('key').value)headers['X-API-Key']=$('key').value;if(body)headers['Content-Type']='application/json';const r=await fetch(path,{method:body?'POST':'GET',headers,body:body?JSON.stringify(body):undefined});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==='string'?d.detail:JSON.stringify(d.detail));return d;}
 async function task(button,fn){$('error').textContent='';button.disabled=true;try{await fn();}catch(e){$('error').textContent=e.message;}finally{button.disabled=false;}}

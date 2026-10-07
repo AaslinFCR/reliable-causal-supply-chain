@@ -23,7 +23,7 @@ jobs:
       - name: Lint
         run: python run.py ruff check scrc tests scripts run.py
       - name: Warehouse and scenario integration tests
-        run: python run.py pytest -q tests/test_operations.py
+        run: python run.py pytest -q tests/test_operations.py tests/test_fulfillment.py
       - name: Build deployment image
         run: docker build -t supplychain-ci .
       - name: Start and verify production container

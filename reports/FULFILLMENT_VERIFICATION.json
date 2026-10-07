@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-07",
+  "local_tests": {
+    "command": "python run.py pytest -q",
+    "passed": 66,
+    "warnings": 1
+  },
+  "lint": "passed",
+  "live_erp_connected": false,
+  "live_carrier_booking_connected": false,
+  "cloud_host_connected": false,
+  "verified_invariants": [
+    "stock reservations prevent overselling",
+    "manual dispatch cannot consume reserved stock",
+    "idempotent orders and carrier events",
+    "ordered carrier transitions and stable tracking IDs",
+    "dispatch deducts stock once",
+    "cancellation releases reservations",
+    "demo data isolation and conservation",
+    "full strike blocks demo dispatch",
+    "signed ERP intake rejects tampering",
+    "persistent workflow survives engine recreation"
+  ],
+  "scope": "Rule-based workflow; actual carrier adapter and business onboarding still required."
+}

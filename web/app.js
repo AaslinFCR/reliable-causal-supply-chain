@@ -1,4 +1,5 @@
 'use strict';
+const fulfillmentLink=document.createElement('a');fulfillmentLink.href='/fulfillment';fulfillmentLink.textContent='Inventory to delivery';document.querySelector('aside').insertBefore(fulfillmentLink,document.querySelector('aside a'));
 const operationsLink=document.createElement('a');operationsLink.href='/operations';operationsLink.textContent='Warehouse operations';document.querySelector('aside').insertBefore(operationsLink,document.querySelector('aside a'));
 const $=id=>document.getElementById(id);let catalog=[],latest=null;
 const number=v=>v==null?'—':Number(v).toLocaleString(undefined,{maximumFractionDigits:2});

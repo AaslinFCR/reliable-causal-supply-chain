@@ -1,9 +1,11 @@
 """Private FastAPI service with persistent audit trails and a local dashboard."""
 
+import asyncio
 import json
 import logging
 import os
 import secrets
+import sqlite3
 import threading
 import time
 from collections import defaultdict, deque
@@ -18,8 +20,10 @@ from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 
+from scrc.api.fulfillment import install_fulfillment
 from scrc.api.operations import install_operations
 from scrc.common import ROOT
+from scrc.production.fulfillment import Fulfillment
 from scrc.production.service import ForecastService
 from scrc.production.store import Store
 
@@ -100,7 +104,42 @@ def create_app(
         app.state.store = Store(db, seed)
         app.state.initialize_operations()
         app.state.service = ForecastService(folder, app.state.store)
-        yield
+        app.state.fulfillment = {
+            "live": Fulfillment(app.state.store, "live"),
+            "demo": Fulfillment(Store(db.parent / (db.stem + "-demo.sqlite")), "demo"),
+        }
+
+        async def worker():
+            while True:
+                await asyncio.sleep(5)
+                for engine in app.state.fulfillment.values():
+                    try:
+                        await asyncio.to_thread(engine.tick)
+                    except (
+                        sqlite3.Error,
+                        ValueError,
+                        HTTPException,
+                        KeyError,
+                        TypeError,
+                    ) as error:
+                        LOG.error("Fulfillment worker failed: %s", type(error).__name__)
+                        with engine.store.connect() as connection:
+                            settings = engine.settings(connection)
+                            settings["last_error"] = type(error).__name__
+                            connection.execute(
+                                "UPDATE wf_settings SET payload=? WHERE id=1",
+                                (json.dumps(settings),),
+                            )
+
+        task = asyncio.create_task(worker())
+        try:
+            yield
+        finally:
+            task.cancel()
+            try:
+                await task
+            except asyncio.CancelledError:
+                pass
 
     app = FastAPI(
         title="Reliable Supply Chain Decisions",
@@ -201,9 +240,9 @@ def create_app(
         return (
             "\n".join(
                 [
-                    f'supplychain_requests_total {values["requests"]}',
-                    f'supplychain_errors_total {values["errors"]}',
-                    f'supplychain_request_seconds_sum {values["seconds"]}',
+                    f"supplychain_requests_total {values['requests']}",
+                    f"supplychain_errors_total {values['errors']}",
+                    f"supplychain_request_seconds_sum {values['seconds']}",
                 ]
             )
             + "\n"
@@ -332,6 +371,7 @@ def create_app(
         }
 
     install_operations(app, authorize, StrictModel)
+    install_fulfillment(app, authorize, StrictModel)
 
     if STATIC.exists():
         app.mount("/static", StaticFiles(directory=STATIC), name="static")
@@ -343,6 +383,10 @@ def create_app(
         @app.get("/operations", include_in_schema=False)
         def operations_dashboard():
             return FileResponse(STATIC / "operations.html")
+
+        @app.get("/fulfillment", include_in_schema=False)
+        def fulfillment_dashboard():
+            return FileResponse(STATIC / "fulfillment.html")
 
     return app
 

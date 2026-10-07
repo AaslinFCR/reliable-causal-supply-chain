@@ -183,6 +183,21 @@ def install_operations(app, authorize, base):
             origin = warehouse(db, payload.warehouse_id)
             current = quantity(db, payload.warehouse_id, payload.commodity)
             change = payload.tonnes if payload.kind == "receipt" else -payload.tonnes
+            if (
+                change < 0
+                and db.execute(
+                    "SELECT 1 FROM sqlite_master WHERE type='table' AND name='wf_orders'"
+                ).fetchone()
+            ):
+                reserved = db.execute(
+                    "SELECT COALESCE(SUM(tonnes),0) FROM wf_orders WHERE warehouse_id=? AND commodity=? AND status='RESERVED'",
+                    (payload.warehouse_id, payload.commodity),
+                ).fetchone()[0]
+                if current + change < reserved - 1e-9:
+                    raise HTTPException(
+                        409,
+                        "Movement would consume inventory reserved for customer orders.",
+                    )
             if current + change < -1e-9:
                 raise HTTPException(409, "Insufficient inventory.")
             total = db.execute(
