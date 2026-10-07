@@ -1,0 +1,2 @@
+# Preserve exact bytes across Windows and Linux for recorded artifact checksums.
+* -text

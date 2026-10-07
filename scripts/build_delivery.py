@@ -28,6 +28,7 @@ def main():
         "run.ps1",
         "Makefile",
         ".gitignore",
+        ".gitattributes",
         "DEPLOYMENT.md",
         "requirements-runtime.txt",
         "Dockerfile",
