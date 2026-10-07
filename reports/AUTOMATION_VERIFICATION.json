@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-08",
+  "local_tests": {
+    "passed": 78,
+    "command": "python run.py pytest -q"
+  },
+  "lint": "passed",
+  "javascript_syntax": "passed",
+  "forecast_source": "Existing verified AGMARKNET forward inputs; earlier history only",
+  "warehouse_scenarios": "synthetic only",
+  "real_disaster_feed_connected": false,
+  "real_smtp_delivery_verified": false,
+  "real_cloud_host_connected": false,
+  "verification": [
+    "stock conservation except explicit demand consumption and synthetic supplier receipts",
+    "main reserve and existing reservations protected",
+    "warehouse capacity respected",
+    "strikes and flood closures block simulated transfers",
+    "repeated simulation day does not consume stock twice",
+    "alert incidents deduplicated, resolved and persistent",
+    "recipient routing and TLS email retries checked with artificial transport",
+    "public demonstration excludes business recipient addresses",
+    "default pages contain no entry forms"
+  ],
+  "replay_source_hashes": {
+    "artifacts/production/demo_market_replay.csv": "5d27e3ec8d6ba778e2bbf2dbd655a7f9a3f7fbd3422db7c8d8897e7bc36bf7df",
+    "artifacts/production/demo_forecast_history.csv": "4f5ad97d884bb2b245b4414e67879c7aef287ab0b27d3966f00a9539dea284aa",
+    "artifacts/production/demo_logistics_context.json": "48d31116940f460a8a83587961ef2b4e6a091275965819cd936c54589c7f801a"
+  }
+}

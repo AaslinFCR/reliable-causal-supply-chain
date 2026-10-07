@@ -31,6 +31,7 @@ def main():
         ".gitattributes",
         "DEPLOYMENT.md",
         "BUSINESS_SETUP.md",
+        "AUTOMATION.md",
         "requirements-runtime.txt",
         "Dockerfile",
         ".dockerignore",

@@ -36,6 +36,16 @@ def install_fulfillment(app, authorize, base):
         tracking_reference: str = Field(min_length=1, max_length=120)
         evidence_reference: str = Field(min_length=1, max_length=200)
 
+    class AlertControls(base):
+        enabled: bool | None = None
+        email_enabled: bool | None = None
+        owner_email: str | None = Field(default=None, max_length=254)
+        warehouse_emails: dict[str, str] | None = Field(default=None, max_length=100)
+        low_stock_tonnes: float | None = Field(default=None, ge=0, le=1e6)
+        stalled_minutes: int | None = Field(default=None, ge=1, le=10080)
+        fuel_increase_pct: float | None = Field(default=None, gt=0, le=1000)
+        demand_increase_pct: float | None = Field(default=None, gt=0, le=1000)
+
     router = APIRouter(prefix="/v1/fulfillment", dependencies=[Depends(authorize)])
 
     def engine(mode):
@@ -44,6 +54,18 @@ def install_fulfillment(app, authorize, base):
     @router.get("/{mode}/state")
     def state(mode: Literal["live", "demo"]):
         return engine(mode).snapshot()
+
+    @router.get("/{mode}/alerts")
+    def alerts(mode: Literal["live", "demo"]):
+        return app.state.alerts[mode].snapshot()
+
+    @router.post("/{mode}/alert-settings")
+    def alert_settings(mode: Literal["live", "demo"], payload: AlertControls):
+        return app.state.alerts[mode].configure(payload.model_dump(exclude_none=True))
+
+    @router.post("/{mode}/alerts/{alert_id}/acknowledge")
+    def acknowledge(mode: Literal["live", "demo"], alert_id: str):
+        return app.state.alerts[mode].acknowledge(alert_id)
 
     @router.post("/{mode}/controls")
     def controls(mode: Literal["live", "demo"], payload: Controls):

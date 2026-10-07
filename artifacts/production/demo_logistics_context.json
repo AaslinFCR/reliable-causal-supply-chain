@@ -1,0 +1,10 @@
+{
+  "basis": "Separate historical Delhivery research dataset; no shipment join to market rows or synthetic orders",
+  "trips": 14817,
+  "start": "2018-09-12",
+  "end": "2018-10-03",
+  "median_actual_minutes": 149.0,
+  "median_distance_km": 65.88260000000001,
+  "median_delay_factor": 2.095158597662772,
+  "source": "https://github.com/shekshavalipattan/Delhivery-Logistics-Data-Pipeline-and-Feature-Engineering"
+}

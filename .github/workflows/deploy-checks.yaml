@@ -22,8 +22,10 @@ jobs:
         run: pip install -r requirements-runtime.txt pytest==8.3.4 httpx==0.28.1 ruff==0.16.10
       - name: Lint
         run: python run.py ruff check scrc tests scripts run.py
+      - name: Check dashboard JavaScript
+        run: node --check web/autopilot.js && node --check web/fulfillment.js
       - name: Warehouse and scenario integration tests
-        run: python run.py pytest -q tests/test_operations.py tests/test_fulfillment.py
+        run: python run.py pytest -q tests/test_operations.py tests/test_fulfillment.py tests/test_alerts.py tests/test_crisis.py
       - name: Build deployment image
         run: docker build -t supplychain-ci .
       - name: Start and verify production container

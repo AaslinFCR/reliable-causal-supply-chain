@@ -1,0 +1,2 @@
+.quick-nav{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0}.quick-nav a{color:#126f74;font-weight:600;text-decoration:none}.notice p{margin-bottom:0}#alert-table tr[data-severity="CRITICAL"]{background:#fff1ed}#alert-table tr[data-severity="WARNING"]{background:#fff9e9}table tr:last-child{font-weight:normal;background:inherit}textarea{font:inherit;padding:12px;max-width:400px}#heartbeat{font-size:12px}html{scroll-behavior:smooth}
+#response-summary{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:1000px){#response-summary{grid-template-columns:1fr}}

@@ -1,6 +1,7 @@
 """Private FastAPI service with persistent audit trails and a local dashboard."""
 
 import asyncio
+import copy
 import json
 import logging
 import os
@@ -23,6 +24,8 @@ from pydantic import BaseModel, ConfigDict, Field
 from scrc.api.fulfillment import install_fulfillment
 from scrc.api.operations import install_operations
 from scrc.common import ROOT
+from scrc.production.alerts import Alerts
+from scrc.production.autopilot import Autopilot
 from scrc.production.fulfillment import Fulfillment
 from scrc.production.service import ForecastService
 from scrc.production.store import Store
@@ -74,6 +77,7 @@ def create_app(
     seed_path=None,
     api_key=None,
     environment=None,
+    autopilot_enabled=None,
 ):
     folder = Path(
         artifact_dir or os.environ.get("MODEL_DIR", ROOT / "artifacts/production")
@@ -91,6 +95,14 @@ def create_app(
     )
     key = api_key if api_key is not None else os.environ.get("SUPPLYCHAIN_API_KEY", "")
     env = environment or os.environ.get("DEPLOY_ENV", "local")
+    automated = (
+        autopilot_enabled
+        if autopilot_enabled is not None
+        else (
+            database_path is None
+            and os.environ.get("AUTOPILOT_ENABLED", "true").lower() == "true"
+        )
+    )
     if env == "production" and len(key) < 32:
         raise RuntimeError(
             "Production requires SUPPLYCHAIN_API_KEY with at least 32 characters."
@@ -108,10 +120,49 @@ def create_app(
             "live": Fulfillment(app.state.store, "live"),
             "demo": Fulfillment(Store(db.parent / (db.stem + "-demo.sqlite")), "demo"),
         }
+        app.state.alerts = {
+            mode: Alerts(engine) for mode, engine in app.state.fulfillment.items()
+        }
+        replay_service = copy.copy(app.state.service)
+        replay_service.store = app.state.fulfillment["demo"].store
+        app.state.autopilot = Autopilot(
+            app.state.fulfillment["demo"],
+            enabled=automated,
+            forecast_service=replay_service,
+        )
+        if automated:
+            app.state.alerts["demo"].configure({"low_stock_tonnes": 3.0})
+
+        async def alert_worker():
+            while True:
+                await asyncio.sleep(5)
+                for monitor in app.state.alerts.values():
+                    try:
+                        await asyncio.to_thread(monitor.poll)
+                    except (sqlite3.Error, ValueError, KeyError, TypeError) as error:
+                        LOG.error("Alert monitor failed: %s", type(error).__name__)
+                        with monitor.store.connect() as connection:
+                            settings = monitor.settings(connection)
+                            settings["last_error"] = type(error).__name__
+                            connection.execute(
+                                "UPDATE alert_settings SET payload=? WHERE id=1",
+                                (json.dumps(settings),),
+                            )
 
         async def worker():
             while True:
                 await asyncio.sleep(5)
+                if automated:
+                    try:
+                        await asyncio.to_thread(app.state.autopilot.step)
+                    except (
+                        sqlite3.Error,
+                        ValueError,
+                        HTTPException,
+                        KeyError,
+                        TypeError,
+                    ) as error:
+                        LOG.error("Dataset replay failed: %s", type(error).__name__)
                 for engine in app.state.fulfillment.values():
                     try:
                         await asyncio.to_thread(engine.tick)
@@ -132,14 +183,13 @@ def create_app(
                             )
 
         task = asyncio.create_task(worker())
+        notifications = asyncio.create_task(alert_worker())
         try:
             yield
         finally:
             task.cancel()
-            try:
-                await task
-            except asyncio.CancelledError:
-                pass
+            notifications.cancel()
+            await asyncio.gather(task, notifications, return_exceptions=True)
 
     app = FastAPI(
         title="Reliable Supply Chain Decisions",
@@ -222,6 +272,20 @@ def create_app(
     @app.get("/health/live")
     def live():
         return {"status": "alive"}
+
+    @app.get("/demo/autopilot")
+    def demo_autopilot():
+        # Only historical context and isolated synthetic data are public.
+        monitor = app.state.alerts["demo"].snapshot()
+        return {
+            "autopilot": app.state.autopilot.snapshot(),
+            "workflow": app.state.fulfillment["demo"].snapshot(),
+            "alerts": monitor["alerts"],
+            "alert_counts": monitor["counts"],
+            "last_alert_scan": monitor["settings"]["last_scan_utc"],
+            "email_configured": monitor["smtp_configured"],
+            "email_note": "Synthetic alerts are displayed here; external email is disabled in demo mode.",
+        }
 
     @app.get("/health/ready")
     def ready():
@@ -378,15 +442,21 @@ def create_app(
 
         @app.get("/", include_in_schema=False)
         def dashboard():
-            return FileResponse(STATIC / "index.html")
+            return FileResponse(
+                STATIC / ("autopilot.html" if automated else "index.html")
+            )
 
         @app.get("/operations", include_in_schema=False)
         def operations_dashboard():
-            return FileResponse(STATIC / "operations.html")
+            return FileResponse(
+                STATIC / ("autopilot.html" if automated else "operations.html")
+            )
 
         @app.get("/fulfillment", include_in_schema=False)
         def fulfillment_dashboard():
-            return FileResponse(STATIC / "fulfillment.html")
+            return FileResponse(
+                STATIC / ("autopilot.html" if automated else "fulfillment.html")
+            )
 
     return app
 

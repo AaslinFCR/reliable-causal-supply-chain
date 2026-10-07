@@ -6,6 +6,8 @@ M.Tech research implementation based on the supplied project plan. Actual measur
 
 ## Application: local and cloud
 
+The default website is now an automatic **main-to-regional warehouse crisis monitor** with no data-entry forms. It replays historical observations, computes market-inflow forecasts, simulates regional demand and disruption scenarios, and produces constrained transfer responses and manager alerts. Read [AUTOMATION.md](AUTOMATION.md) for scenario boundaries, alert routing and SMTP setup.
+
 The new `/fulfillment` control tower automatically reserves stock for recorded orders and tracks confirmed dispatch, transit and delivery. It includes a durable shipment handoff queue, cancellations, signed ERPNext order intake and an isolated synthetic demo with replenishment, fuel and strike scenarios. ERPNext and Delhivery accounts are not connected; carrier booking is not active. See [BUSINESS_SETUP.md](BUSINESS_SETUP.md) for data sources, integration contracts and activation requirements.
 
 Warehouse operations at `/operations` include main/regional inventory, receipts, dispatches, atomic transfers, manual demand/fuel/strike records, historical market fluctuation comparisons and saved planning scenarios. Inventory and operational conditions start empty until real manual records are entered. Scenario outputs never execute transfers. GitHub Actions and Render are configured for automatic deployment after CI passes; the private GitHub repository is connected and hosting activation still requires a cloud account.
