@@ -58,3 +58,6 @@ The private GitHub pipeline checks Python, JavaScript syntax, warehouse/alert/cr
 
 ## Four-option decision gate
 Each regional commodity plan compares main replenishment, regional rebalance, emergency sourcing and demand prioritisation. Scores are transparent heuristic assessments: feasibility 35, shortfall coverage 30, seven-day demand evidence 20, operational checks 10, stable fuel 5. Green requires all hard checks, full modeled shortfall coverage, seven days of history and score at least 85. Amber is a review-only backup. Grey means infeasible or unnecessary. Red means insufficient evidence or unverified supplier data. No score is a probability or causal-effect estimate. Only a green main replenishment can execute in the synthetic ledger; other proposals do not reserve or execute stock. Stock-out and protected-reserve warnings are separate. Rationing adds no stock. No green option is forced when none qualifies.
+
+## Homepage navigation
+The default home view shows stock metrics, warehouse totals and automatic shift alerts. Inventory, alert history, market insights and research evidence have separate navigation views. The decision centre shows expandable assessments only for affected products; scoring and audit detail are secondary. This replaces the previous long dashboard layout without changing Python monitoring or synthetic execution gates.
