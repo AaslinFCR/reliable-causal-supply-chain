@@ -1,0 +1,127 @@
+{
+  "question": "Does commodity-specific rolling adaptive conformal calibration improve coverage-width tradeoffs versus pooled and commodity fixed calibration?",
+  "seed": 42,
+  "nominal_coverage": 0.95,
+  "features": [
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_7",
+    "lag_14",
+    "lag_21",
+    "lag_28",
+    "rolling_mean",
+    "rolling_std",
+    "price_lag",
+    "mean_7",
+    "mean_14",
+    "mean_28",
+    "median_7",
+    "median_14",
+    "median_28",
+    "std_7",
+    "std_14",
+    "std_28",
+    "weekly_seasonal",
+    "price_mean_7",
+    "price_mean_28",
+    "trend_ratio",
+    "recent_ratio",
+    "weekday",
+    "month",
+    "year_day",
+    "weekday_sin",
+    "weekday_cos",
+    "season_sin",
+    "season_cos",
+    "state_code",
+    "market_code",
+    "commodity_code"
+  ],
+  "ablations": {
+    "full": [],
+    "without_price": [
+      "price_lag",
+      "price_mean_7",
+      "price_mean_28"
+    ],
+    "without_seasonality": [
+      "weekday",
+      "month",
+      "year_day",
+      "weekday_sin",
+      "weekday_cos",
+      "season_sin",
+      "season_cos"
+    ]
+  },
+  "folds": [
+    [
+      "2023-01-01",
+      "2023-04-01"
+    ],
+    [
+      "2023-04-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2023-10-01"
+    ]
+  ],
+  "fold_calibration_days": 90,
+  "final_train_end": "2023-09-30",
+  "final_calibration_start": "2023-10-01",
+  "final_calibration_end": "2023-12-31",
+  "inspected_test_start": "2024-01-01",
+  "inspected_test_end": "2024-03-31",
+  "later_test_start": "2024-04-01",
+  "later_test_end": "2024-06-30",
+  "adaptive_grid": [
+    {
+      "window": 250,
+      "gamma": 0.005
+    },
+    {
+      "window": 250,
+      "gamma": 0.02
+    },
+    {
+      "window": 500,
+      "gamma": 0.005
+    },
+    {
+      "window": 500,
+      "gamma": 0.02
+    }
+  ],
+  "adaptive_alpha_clip": [
+    0.005,
+    0.2
+  ],
+  "minimum_group_count": 100,
+  "bootstrap_repeats": 300,
+  "minimum_subgroup_n": 30,
+  "rf_specs": [
+    {
+      "name": "rf_raw",
+      "target": "raw",
+      "n_estimators": 120,
+      "max_depth": 18,
+      "min_samples_leaf": 3,
+      "max_features": 0.7
+    },
+    {
+      "name": "rf_log",
+      "target": "log",
+      "n_estimators": 120,
+      "max_depth": 18,
+      "min_samples_leaf": 3,
+      "max_features": 0.7
+    }
+  ],
+  "lightgbm_search": "Existing eight configurations; no blend search in new benchmark, blend weight fixed 1.0. Log baseline additionally compares 15 vs 31 leaves. Same folds and observations.",
+  "adaptive_selection_rule": "Minimise mean interval score among configurations with average validation coverage >=0.94; if none, minimise absolute coverage gap, then interval score.",
+  "acquisition_max_files": 12,
+  "fresh_test_caveat": "January-March 2024 was already inspected. April-June 2024 is requested only after selected settings are frozen. If locally already acquired, it is not claimed newly acquired."
+}

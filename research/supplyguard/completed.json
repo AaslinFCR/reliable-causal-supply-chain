@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "finished_utc": "2026-10-09T11:05:00.907702+00:00",
+  "new_period_acquired": true,
+  "unexecuted_experiments": [],
+  "files": {
+    "interval_metrics.csv": "4cb9138a3d1aaa04039a0f39de0b7c8eb7c7354851f21cd5183bff750a15588b",
+    "paired_differences.csv": "21a3aae711cb0a9866597113a2bbac03aef19690afd5ee28614ab269d82b4d02",
+    "point_metrics.csv": "af19546518171544b8b266196d20e355c1658a43d179c3bbe52423e396f006f4",
+    "validation_global_ranking.csv": "3e7dd673e43cd977cbec8e1abbafd6b31fc9a974aa2cf6ae6080a3777e8aef15",
+    "validation_point_ranking.csv": "39b72bc70e285afc985aa26b4de60952c64bd6ea5c5448a5d27bff82b19d663f",
+    "validation_search.csv": "48096ebb5f4e00008b54db25c07bae914897d7dd01d831c82a7b722da86247d0"
+  }
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "key": "gibbs2021",
+    "authors": "Isaac Gibbs and Emmanuel Candes",
+    "title": "Adaptive Conformal Inference Under Distribution Shift",
+    "year": 2021,
+    "venue": "Advances in Neural Information Processing Systems 34",
+    "url": "https://papers.neurips.cc/paper_files/paper/2021/hash/0d441de75945e5acbc865406fc9a2559-Abstract.html",
+    "method": "Online adjustment of conformal miscoverage level",
+    "dataset": "Stock-market volatility and US election-night county vote predictions",
+    "evaluation": "Sequential local and aggregate coverage under changing conditions",
+    "difference": "SupplyGuard uses commodity-specific residual windows and clipped date-batch updates on AGMARKNET; original guarantees do not automatically transfer."
+  },
+  {
+    "key": "romano2020",
+    "authors": "Yaniv Romano, Rina Foygel Barber, Chiara Sabatti and Emmanuel Candes",
+    "title": "With Malice Toward None: Assessing Uncertainty via Equalized Coverage",
+    "year": 2020,
+    "venue": "Harvard Data Science Review 2(2)",
+    "url": "https://hdsr.mitpress.mit.edu/pub/qedrwcz3/download/pdf",
+    "method": "Group-conditional conformal and conformalized quantile-regression comparisons",
+    "dataset": "Medical Expenditure Panel Survey (MEPS)",
+    "evaluation": "Coverage and length by demographic group; 40 random 80/20 train-test splits",
+    "difference": "SupplyGuard groups by commodity and evaluates chronological forecasts. Fixed state/commodity calibration already exists in the one-state project and is reused."
+  },
+  {
+    "key": "xu2021",
+    "authors": "Chen Xu and Yao Xie",
+    "title": "Conformal prediction interval for dynamic time-series",
+    "year": 2021,
+    "venue": "Proceedings of the 38th ICML, PMLR 139, pp. 11559-11569",
+    "url": "https://proceedings.mlr.press/v139/xu21h.html",
+    "method": "EnbPI bootstrap-ensemble residual intervals",
+    "dataset": "Hourly solar and wind energy series; additional time-series experiments",
+    "evaluation": "Sequential coverage-width comparisons, including missing-data and multistep settings",
+    "difference": "SupplyGuard does not implement EnbPI. It compares split and rolling adaptive calibration around common point forecasts."
+  },
+  {
+    "key": "makridakis2022",
+    "authors": "Spyros Makridakis, Evangelos Spiliotis and Vassilios Assimakopoulos",
+    "title": "M5 accuracy competition: Results, findings, and conclusions",
+    "year": 2022,
+    "venue": "International Journal of Forecasting 38(4), pp. 1346-1364",
+    "doi": "10.1016/j.ijforecast.2021.11.013",
+    "url": "https://doi.org/10.1016/j.ijforecast.2021.11.013",
+    "method": "Retail forecasting competition, hierarchical reconciliation and model combinations",
+    "dataset": "Walmart hierarchical retail unit-sales series",
+    "evaluation": "Separate validation/test phases, 28-day horizon and weighted RMSSE",
+    "difference": "SupplyGuard predicts wholesale market arrivals one day ahead and reports calibration tradeoffs; it does not infer retail demand or inventory benefits."
+  }
+]

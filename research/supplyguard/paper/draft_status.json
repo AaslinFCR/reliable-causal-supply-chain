@@ -1,0 +1,17 @@
+{
+  "status": "rough_draft",
+  "generated_from": "completed executed CSVs",
+  "novel_method_claimed": false,
+  "fresh_later_period": true,
+  "author_affiliation": "unfinished",
+  "compiler_status": "success",
+  "unfinished_work": [
+    "external cohort",
+    "latency audit",
+    "serial dependence-aware inference",
+    "publication polishing"
+  ],
+  "compiler": "Tectonic 0.17.0 native fallback",
+  "pdf_sha256": "ba0aa75aa58207a90b942e544d56827d4c768c6964ad08112ddbacfed86dea84",
+  "visual_review": "All four final PDF pages rendered with Poppler and visually reviewed; no clipped tables or text. Minor underfull spacing warnings."
+}

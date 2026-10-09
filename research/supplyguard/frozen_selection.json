@@ -1,0 +1,1312 @@
+{
+  "frozen_utc": "2026-10-09T11:01:42.694721+00:00",
+  "point_selection": {
+    "routing": {
+      "Onion": "raw_l1",
+      "Potato": "ratio_l1",
+      "Rice": "ratio_l1",
+      "Wheat": "raw_l1"
+    },
+    "random_forest": "rf_raw",
+    "log_lightgbm": "log_l2_31"
+  },
+  "adaptive": {
+    "rolling_mean": {
+      "selected": {
+        "window": 250,
+        "gamma": 0.02
+      },
+      "candidates": [
+        {
+          "window": 250,
+          "gamma": 0.005,
+          "coverage": 0.9505026293242103,
+          "mean_interval_score": 520.8689558377265,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9449263667540851,
+              "coverage_gap": -0.00507363324591481,
+              "mean_width": 457.96970833445175,
+              "mean_interval_score": 699.450934603464,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9589013632718525,
+              "coverage_gap": 0.008901363271852536,
+              "mean_width": 376.10669922883164,
+              "mean_interval_score": 489.56335038117385,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.947680157946693,
+              "coverage_gap": -0.002319842053306931,
+              "mean_width": 175.36702960178147,
+              "mean_interval_score": 373.5925825285414,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 250,
+          "gamma": 0.02,
+          "coverage": 0.9502243837292612,
+          "mean_interval_score": 518.3023325908018,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9455315715150292,
+              "coverage_gap": -0.0044684284849707545,
+              "mean_width": 454.905237379198,
+              "mean_interval_score": 694.9811556527301,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9550922213311949,
+              "coverage_gap": 0.005092221331194913,
+              "mean_width": 373.3759039763857,
+              "mean_interval_score": 485.56076195178645,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9500493583415597,
+              "coverage_gap": 4.9358341559724295e-05,
+              "mean_width": 175.85896102359644,
+              "mean_interval_score": 374.36508016788895,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.005,
+          "coverage": 0.9517091620490347,
+          "mean_interval_score": 528.079387394928,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9447246318337704,
+              "coverage_gap": -0.005275368166229533,
+              "mean_width": 449.54299744079424,
+              "mean_interval_score": 698.6034019051915,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9635124298315958,
+              "coverage_gap": 0.01351242983159584,
+              "mean_width": 403.0270512716429,
+              "mean_interval_score": 512.5602231941593,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9468904244817374,
+              "coverage_gap": -0.0031095755182625195,
+              "mean_width": 174.3546530017914,
+              "mean_interval_score": 373.07453708543295,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.02,
+          "coverage": 0.9514291224310965,
+          "mean_interval_score": 520.5266439129917,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9459350413556586,
+              "coverage_gap": -0.00406495864434131,
+              "mean_width": 451.4783198996123,
+              "mean_interval_score": 693.7214981115799,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9585004009623096,
+              "coverage_gap": 0.00850040096230964,
+              "mean_width": 397.10807156696706,
+              "mean_interval_score": 494.3973896416388,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9498519249753208,
+              "coverage_gap": -0.00014807502467917288,
+              "mean_width": 175.154776495191,
+              "mean_interval_score": 373.46104398575653,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        }
+      ]
+    },
+    "weekly_seasonal": {
+      "selected": {
+        "window": 250,
+        "gamma": 0.02
+      },
+      "candidates": [
+        {
+          "window": 250,
+          "gamma": 0.005,
+          "coverage": 0.9500280886281316,
+          "mean_interval_score": 602.5820743281599,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9441194270728263,
+              "coverage_gap": -0.0058805729271736995,
+              "mean_width": 525.8454394290088,
+              "mean_interval_score": 800.3563416631882,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9572975140336808,
+              "coverage_gap": 0.007297514033680841,
+              "mean_width": 434.7890548223627,
+              "mean_interval_score": 563.3567868917502,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9486673247778875,
+              "coverage_gap": -0.001332675222112445,
+              "mean_width": 208.29086263268084,
+              "mean_interval_score": 444.0330944295413,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 250,
+          "gamma": 0.02,
+          "coverage": 0.9501567208339754,
+          "mean_interval_score": 600.2849219122601,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9451281016743999,
+              "coverage_gap": -0.004871898325600088,
+              "mean_width": 525.2468359238343,
+              "mean_interval_score": 796.3374753893752,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9552927024859663,
+              "coverage_gap": 0.005292702485966361,
+              "mean_width": 430.8660260226071,
+              "mean_interval_score": 559.2480174140634,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9500493583415597,
+              "coverage_gap": 4.9358341559724295e-05,
+              "mean_width": 209.76279981891838,
+              "mean_interval_score": 445.26927293334165,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.005,
+          "coverage": 0.949435255107133,
+          "mean_interval_score": 617.712606197218,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9419003429493645,
+              "coverage_gap": -0.008099657050635423,
+              "mean_width": 523.4425206589482,
+              "mean_interval_score": 818.4503213412085,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9603047313552526,
+              "coverage_gap": 0.010304731355252672,
+              "mean_width": 460.02944775393473,
+              "mean_interval_score": 588.4219366501509,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9461006910167818,
+              "coverage_gap": -0.0038993089832181083,
+              "mean_width": 209.46739071184803,
+              "mean_interval_score": 446.2655606002947,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.02,
+          "coverage": 0.9498226501614041,
+          "mean_interval_score": 609.8331681441213,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9427072826306233,
+              "coverage_gap": -0.0072927173693766445,
+              "mean_width": 525.367129776751,
+              "mean_interval_score": 805.2587145536916,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9576984763432237,
+              "coverage_gap": 0.007698476343223737,
+              "mean_width": 456.27320394729435,
+              "mean_interval_score": 576.4970440782671,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9490621915103653,
+              "coverage_gap": -0.0009378084896346506,
+              "mean_width": 207.51292264545677,
+              "mean_interval_score": 447.7437458004054,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        }
+      ]
+    },
+    "random_forest": {
+      "selected": {
+        "window": 500,
+        "gamma": 0.005
+      },
+      "candidates": [
+        {
+          "window": 250,
+          "gamma": 0.005,
+          "coverage": 0.9509159492033703,
+          "mean_interval_score": 411.9345093420031,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9513818842041557,
+              "coverage_gap": 0.0013818842041557478,
+              "mean_width": 308.1296209800431,
+              "mean_interval_score": 568.403976442459,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9534883720930233,
+              "coverage_gap": 0.0034883720930233286,
+              "mean_width": 231.2893623995952,
+              "mean_interval_score": 323.8191951056835,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9478775913129319,
+              "coverage_gap": -0.0021224086870680337,
+              "mean_width": 130.94588439035087,
+              "mean_interval_score": 343.5803564778667,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 250,
+          "gamma": 0.02,
+          "coverage": 0.9517774670318723,
+          "mean_interval_score": 415.3180691567347,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9527940286463586,
+              "coverage_gap": 0.0027940286463586927,
+              "mean_width": 313.64660181721825,
+              "mean_interval_score": 572.9954639116704,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9526864474739375,
+              "coverage_gap": 0.0026864474739375366,
+              "mean_width": 234.43189843879986,
+              "mean_interval_score": 326.60520985705864,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9498519249753208,
+              "coverage_gap": -0.00014807502467917288,
+              "mean_width": 134.60194836609597,
+              "mean_interval_score": 346.3535337014748,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.005,
+          "coverage": 0.9493255517200363,
+          "mean_interval_score": 408.5883615068212,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9485575953197498,
+              "coverage_gap": -0.0014424046802501422,
+              "mean_width": 289.5854889542919,
+              "mean_interval_score": 564.1257141907258,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9552927024859663,
+              "coverage_gap": 0.005292702485966361,
+              "mean_width": 226.979724918345,
+              "mean_interval_score": 324.9887041954256,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9441263573543929,
+              "coverage_gap": -0.00587364264560708,
+              "mean_width": 127.5283644793722,
+              "mean_interval_score": 336.65066613431213,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.02,
+          "coverage": 0.9507871369117112,
+          "mean_interval_score": 410.30888812782285,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9507766794432116,
+              "coverage_gap": 0.0007766794432116919,
+              "mean_width": 297.45979351844187,
+              "mean_interval_score": 567.6553669415565,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9548917401764234,
+              "coverage_gap": 0.004891740176423465,
+              "mean_width": 229.51015712796612,
+              "mean_interval_score": 325.3296446527388,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9466929911154985,
+              "coverage_gap": -0.0033070088845014167,
+              "mean_width": 131.97954490682352,
+              "mean_interval_score": 337.94165278917313,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        }
+      ]
+    },
+    "log_lightgbm": {
+      "selected": {
+        "window": 500,
+        "gamma": 0.005
+      },
+      "candidates": [
+        {
+          "window": 250,
+          "gamma": 0.005,
+          "coverage": 0.9514567766935934,
+          "mean_interval_score": 398.9152956774712,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9533992334073028,
+              "coverage_gap": 0.0033992334073028596,
+              "mean_width": 303.74363553686806,
+              "mean_interval_score": 528.5873818466151,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9534883720930233,
+              "coverage_gap": 0.0034883720930233286,
+              "mean_width": 230.13256793825727,
+              "mean_interval_score": 327.6716189552222,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9474827245804541,
+              "coverage_gap": -0.002517275419545828,
+              "mean_width": 128.4194547577118,
+              "mean_interval_score": 340.48688623057615,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 250,
+          "gamma": 0.02,
+          "coverage": 0.9517832024373067,
+          "mean_interval_score": 399.596711448956,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9536009683276175,
+              "coverage_gap": 0.003600968327617582,
+              "mean_width": 307.3532371593906,
+              "mean_interval_score": 531.2200878999764,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9526864474739375,
+              "coverage_gap": 0.0026864474739375366,
+              "mean_width": 229.35699429336447,
+              "mean_interval_score": 325.99735276341636,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9490621915103653,
+              "coverage_gap": -0.0009378084896346506,
+              "mean_width": 131.3307914845163,
+              "mean_interval_score": 341.57269368347505,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.005,
+          "coverage": 0.9499250788257632,
+          "mean_interval_score": 394.3165714116615,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9505749445228969,
+              "coverage_gap": 0.0005749445228969696,
+              "mean_width": 285.9170699291892,
+              "mean_interval_score": 513.1085932358172,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9538893344025662,
+              "coverage_gap": 0.0038893344025662246,
+              "mean_width": 229.34561863513372,
+              "mean_interval_score": 331.4010619685429,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9453109575518263,
+              "coverage_gap": -0.004689042448173697,
+              "mean_width": 126.67707819779181,
+              "mean_interval_score": 338.44005903062447,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.02,
+          "coverage": 0.9518465060282999,
+          "mean_interval_score": 395.571522014923,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9523905588057293,
+              "coverage_gap": 0.002390558805729359,
+              "mean_width": 289.6711986205411,
+              "mean_interval_score": 516.2082078811871,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9538893344025662,
+              "coverage_gap": 0.0038893344025662246,
+              "mean_width": 229.94012493334162,
+              "mean_interval_score": 330.02242016591583,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9492596248766041,
+              "coverage_gap": -0.0007403751233958644,
+              "mean_width": 131.61255126863784,
+              "mean_interval_score": 340.48393799766615,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        }
+      ]
+    },
+    "selected_lightgbm_bundle": {
+      "selected": {
+        "window": 500,
+        "gamma": 0.005
+      },
+      "candidates": [
+        {
+          "window": 250,
+          "gamma": 0.005,
+          "coverage": 0.9508628626577028,
+          "mean_interval_score": 403.76215064309446,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9536009683276175,
+              "coverage_gap": 0.003600968327617582,
+              "mean_width": 288.73290196076647,
+              "mean_interval_score": 529.3643843440384,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9528869286287089,
+              "coverage_gap": 0.0028869286287089846,
+              "mean_width": 224.19736277492152,
+              "mean_interval_score": 323.97002005298305,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9461006910167818,
+              "coverage_gap": -0.0038993089832181083,
+              "mean_width": 127.95972257305105,
+              "mean_interval_score": 357.95204753226193,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 250,
+          "gamma": 0.02,
+          "coverage": 0.9523186546937262,
+          "mean_interval_score": 405.39978877367804,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9540044381682469,
+              "coverage_gap": 0.0040044381682469155,
+              "mean_width": 292.58987295833043,
+              "mean_interval_score": 532.6710894397614,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9538893344025662,
+              "coverage_gap": 0.0038893344025662246,
+              "mean_width": 223.19039929829992,
+              "mean_interval_score": 323.9584020339874,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9490621915103653,
+              "coverage_gap": -0.0009378084896346506,
+              "mean_width": 130.807509972574,
+              "mean_interval_score": 359.56987484728535,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 250,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.005,
+          "coverage": 0.9496595068921735,
+          "mean_interval_score": 400.6641900201909,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9489610651603793,
+              "coverage_gap": -0.0010389348396206977,
+              "mean_width": 275.44223461943625,
+              "mean_interval_score": 520.1182923106661,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9556936647955092,
+              "coverage_gap": 0.005693664795509257,
+              "mean_width": 223.78415091847384,
+              "mean_interval_score": 329.2347071418571,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9443237907206318,
+              "coverage_gap": -0.005676209279368183,
+              "mean_width": 125.0911463152203,
+              "mean_interval_score": 352.63957060804944,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.005,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        },
+        {
+          "window": 500,
+          "gamma": 0.02,
+          "coverage": 0.9514530153969636,
+          "mean_interval_score": 402.10677224869823,
+          "folds": [
+            {
+              "fold": 0,
+              "n": 4957,
+              "coverage": 0.9515836191244704,
+              "coverage_gap": 0.00158361912447047,
+              "mean_width": 281.8843270581783,
+              "mean_interval_score": 524.7250244337163,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 1,
+              "n": 4988,
+              "coverage": 0.9552927024859663,
+              "coverage_gap": 0.005292702485966361,
+              "mean_width": 224.01206882019525,
+              "mean_interval_score": 328.29290073395714,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            },
+            {
+              "fold": 2,
+              "n": 5065,
+              "coverage": 0.9474827245804541,
+              "coverage_gap": -0.002517275419545828,
+              "mean_width": 128.87132107642915,
+              "mean_interval_score": 353.30239157842124,
+              "fallback_rows": 0,
+              "alpha_clipping_updates": 0,
+              "method": "commodity_adaptive",
+              "window": 500,
+              "gamma": 0.02,
+              "minimum_group_count": 100,
+              "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "model_specs": [
+    {
+      "name": "log_l2",
+      "family": "lightgbm",
+      "objective": "regression",
+      "target": "log",
+      "num_leaves": 15,
+      "n_estimators": 400
+    },
+    {
+      "name": "raw_l1",
+      "family": "lightgbm",
+      "objective": "regression_l1",
+      "target": "raw",
+      "num_leaves": 31,
+      "n_estimators": 500
+    },
+    {
+      "name": "raw_l2",
+      "family": "lightgbm",
+      "objective": "regression",
+      "target": "raw",
+      "num_leaves": 31,
+      "n_estimators": 400
+    },
+    {
+      "name": "tweedie",
+      "family": "lightgbm",
+      "objective": "tweedie",
+      "target": "raw",
+      "num_leaves": 31,
+      "n_estimators": 500
+    },
+    {
+      "name": "poisson",
+      "family": "lightgbm",
+      "objective": "poisson",
+      "target": "raw",
+      "num_leaves": 15,
+      "n_estimators": 400
+    },
+    {
+      "name": "ratio_l1",
+      "family": "lightgbm",
+      "objective": "regression_l1",
+      "target": "ratio",
+      "num_leaves": 15,
+      "n_estimators": 400
+    },
+    {
+      "name": "raw_l1_small",
+      "family": "lightgbm",
+      "objective": "regression_l1",
+      "target": "raw",
+      "num_leaves": 15,
+      "n_estimators": 400
+    },
+    {
+      "name": "huber",
+      "family": "lightgbm",
+      "objective": "huber",
+      "target": "raw",
+      "num_leaves": 31,
+      "n_estimators": 500
+    },
+    {
+      "name": "log_l2_31",
+      "family": "lightgbm",
+      "objective": "regression",
+      "target": "log",
+      "num_leaves": 31,
+      "n_estimators": 400
+    },
+    {
+      "name": "rf_raw",
+      "target": "raw",
+      "n_estimators": 120,
+      "max_depth": 18,
+      "min_samples_leaf": 3,
+      "max_features": 0.7,
+      "family": "random_forest"
+    },
+    {
+      "name": "rf_log",
+      "target": "log",
+      "n_estimators": 120,
+      "max_depth": 18,
+      "min_samples_leaf": 3,
+      "max_features": 0.7,
+      "family": "random_forest"
+    }
+  ],
+  "features": [
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_7",
+    "lag_14",
+    "lag_21",
+    "lag_28",
+    "rolling_mean",
+    "rolling_std",
+    "price_lag",
+    "mean_7",
+    "mean_14",
+    "mean_28",
+    "median_7",
+    "median_14",
+    "median_28",
+    "std_7",
+    "std_14",
+    "std_28",
+    "weekly_seasonal",
+    "price_mean_7",
+    "price_mean_28",
+    "trend_ratio",
+    "recent_ratio",
+    "weekday",
+    "month",
+    "year_day",
+    "weekday_sin",
+    "weekday_cos",
+    "season_sin",
+    "season_cos",
+    "state_code",
+    "market_code",
+    "commodity_code"
+  ],
+  "ablations": {
+    "full": [],
+    "without_price": [
+      "price_lag",
+      "price_mean_7",
+      "price_mean_28"
+    ],
+    "without_seasonality": [
+      "weekday",
+      "month",
+      "year_day",
+      "weekday_sin",
+      "weekday_cos",
+      "season_sin",
+      "season_cos"
+    ]
+  },
+  "partitions": [
+    {
+      "fold": 0,
+      "train_n": 33921,
+      "calibration_n": 4793,
+      "validation_n": 4957,
+      "train_end": "2022-10-02 00:00:00",
+      "calibration_start": "2022-10-03 00:00:00",
+      "calibration_end": "2022-12-31 00:00:00",
+      "validation_start": "2023-01-01",
+      "validation_end_exclusive": "2023-04-01"
+    },
+    {
+      "fold": 1,
+      "train_n": 38714,
+      "calibration_n": 4957,
+      "validation_n": 4988,
+      "train_end": "2022-12-31 00:00:00",
+      "calibration_start": "2023-01-01 00:00:00",
+      "calibration_end": "2023-03-31 00:00:00",
+      "validation_start": "2023-04-01",
+      "validation_end_exclusive": "2023-07-01"
+    },
+    {
+      "fold": 2,
+      "train_n": 43723,
+      "calibration_n": 4936,
+      "validation_n": 5065,
+      "train_end": "2023-04-01 00:00:00",
+      "calibration_start": "2023-04-02 00:00:00",
+      "calibration_end": "2023-06-30 00:00:00",
+      "validation_start": "2023-07-01",
+      "validation_end_exclusive": "2023-10-01"
+    }
+  ],
+  "final_training_n": 53724,
+  "final_calibration_n": 4890,
+  "model_hashes": {
+    "ablation_without_price.joblib": "d5a91e578ae0bf968b1f646b7715397cc8162c972e70ccfdb2586245be6f32cb",
+    "ablation_without_seasonality.joblib": "bc7fb5227dc84b1ded07f9fe02b55c73ee5ca7335e8034ce3d96665e3bc464de",
+    "log_l2.joblib": "f228d883dca83463234fe039c718abf87c911d6fc3dcb64382ad963336550436",
+    "log_l2_31.joblib": "e5ef1ad0e5dece94fc52e4da67eeecb8d2a47412167841f79870971534d8a012",
+    "ratio_l1.joblib": "b825328039e847d9ae26db363f95e24701d43abcb0bebe0dbe3c1a357e92fa45",
+    "raw_l1.joblib": "6a9b08ebba30de3604d023a2cf0bbd14e586a271b5d392a08356d3eb8fe29792",
+    "rf_raw.joblib": "29d96abae310dfc3082a4f34ac0248c38641298dc3d7d59ffff9db28a8fed542"
+  },
+  "data_sha256": "535e978482b327916fd6ee58cf50bf520ad4c2d4fa4fdca0d08a03942133d5a6",
+  "config_sha256": "b2854f151839495f2a7240656a43b139d31aa322cbb28e4eab7eb20ccc92828c",
+  "nominal_coverage": 0.95,
+  "primary_calibration_comparison": "log_lightgbm",
+  "ablation_calibration": "Fixed commodity calibration is primary; adaptive ablation intervals use the full log baseline settings without retuning",
+  "new_period_rule": "Freeze before acquisition. New later test adaptive histories initialise from Oct-Dec calibration; no Jan-Mar residuals are consumed, though prior actual arrival/price features are available one day at a time."
+}

@@ -1,0 +1,168 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath,amssymb,booktabs,url}
+\setlength{\tabcolsep}{3pt}
+\title{SupplyGuard: Evaluating Commodity-Specific Adaptive Conformal Calibration for Agricultural Market-Arrival Forecasting}
+\author{\IEEEauthorblockN{M.Tech Research Project}\IEEEauthorblockA{Rough draft for staff review; author and affiliation to be completed}}
+\begin{document}\maketitle
+\begin{abstract}
+On the later April-June benchmark, Reselected LGBM bundle has the lowest WAPE among the recorded main and preserved-reference forecasts (19.80\%). For identical log-LightGBM point predictions, commodity fixed coverage is 90.79\% with mean width 194.135 tonnes; commodity adaptive coverage is 94.88\% with width 344.446 tonnes. Their mean interval scores are 495.119 and 475.210, respectively. These are empirical tradeoffs, not a universal superiority or causal claim. The later-period interval-score difference has a descriptive paired interval that includes zero. A later contiguous April--June 2024 cohort was newly acquired only after model and calibration settings were frozen. We compare pooled fixed, commodity fixed and rolling commodity adaptive calibration under a common scaled residual score and 95\% nominal target. The benchmark includes rolling and weekly baselines, Random Forest, log-LightGBM and a validation-selected LightGBM bundle, with controlled price and calendar feature ablations. Findings are empirical and limited to the recorded cohort. No new conformal theorem, verified novelty or operational causal benefit is claimed.
+\end{abstract}
+\begin{IEEEkeywords}Conformal calibration, agricultural market arrivals, time-series forecasting, uncertainty evaluation\end{IEEEkeywords}
+\section{Introduction and Research Question}
+Reliable planning requires uncertainty information as conditions change. A single point forecast does not express the range of plausible future arrivals. This study asks whether commodity-specific rolling adaptive calibration improves the coverage--width tradeoff relative to pooled and commodity-specific fixed calibration. We treat this as an empirical question and candidate domain contribution, not established methodological novelty. Market arrivals represent supply inflows, not retail demand or warehouse inventory.
+\section{Related Work}
+Gibbs and Candes introduce adaptive conformal inference for changing distributions, evaluated on financial volatility and election-night prediction \cite{gibbs2021}. We reuse its level-adjustment idea but add clipped, date-batched updates and residual windows; original guarantees do not automatically transfer. Romano et al. study group-conditional coverage \cite{romano2020}; commodity grouping here is an application of existing group calibration, not an invention. Xu and Xie's EnbPI addresses dynamic time-series intervals \cite{xu2021}; EnbPI is related work and is not an implemented comparator in this draft. The M5 retail forecasting competition highlights boosted-tree and combination methods \cite{makridakis2022}. Its sales targets and 28-day horizon differ from wholesale one-day market inflows. Our contribution is reproducible engineering and empirical evaluation; novelty beyond this remains uncertain.
+\section{Dataset Provenance}
+The completed government AGMARKNET cohort comprises 59,648 actual market-day observations in 16 Uttar Pradesh markets during 2021--2023 for rice, wheat, onion and potato. There are 144 cached monthly source responses with request parameters and SHA-256 hashes. Published daily total arrivals are counted once, avoiding repeated totals across varieties. Modal prices are arrivals-weighted across valid varieties, with median fallback for zero usable weights. Prices are INR per quintal and arrivals are tonnes. Market selection uses January 2021--June 2022 completeness only. Daily reindexing creates 10,374 unobserved calendar rows; targets and prices remain missing and are not replaced by zero. Another 4,965 January--March 2024 observations were previously evaluated. A later contiguous April--June 2024 cohort was newly acquired only after model and calibration settings were frozen.
+Source provenance and subgroup missingness are retained in machine-readable manifests. The larger four-state plan was not completed because of acquisition restrictions; conclusions cover one state. Historical acquisition in 2026 does not make the records current 2026 market observations.
+\section{Methodology}
+\subsection{Point Forecasting}
+We compare rolling mean, weekly seasonal mean, RandomForestRegressor, log-target LightGBM and a commodity-routed LightGBM bundle. Eight LightGBM specifications are configurations of one model family, not eight algorithms. Random Forest compares raw and log targets with 120 trees, depth 18, minimum leaf size 3 and maximum feature fraction 0.7. Its numeric median imputer and one-hot category encoder fit only on proper training data. LightGBM uses native missing-value and category handling. All receive the same source information and eligible target rows; representation differs. Log targets are inverted with expm1, ratio targets are rescaled with the past mean, and predictions are clipped below at zero.
+\subsection{Feature Information}
+The 34 inputs contain calendar-day arrival lags at 1, 2, 3, 7, 14, 21 and 28 days; past rolling mean and standard deviation; prior price; 7/14/28-day means, medians and standard deviations; weekly seasonal lag average; 7/28-day price means; trend and recent ratios; weekday, month and day-of-year; sine/cosine weekday and annual seasonality; and training-frozen state, market and commodity codes. All rolling features shift outcomes by one day before calculation. Unknown vocabulary values encode as -1; Random Forest ignores unknown one-hot categories. Fuel, warehouse stock, strikes and floods are not model inputs.
+\subsection{Common Calibration Score}
+For actual arrival $y_i$, point prediction $\hat y_i$ and past-only scale $s_i=\max(\overline y_{i,28},1)$, define
+\begin{equation}r_i=|y_i-\hat y_i|/s_i.\end{equation}
+The fixed split quantile uses order rank $\lceil(n+1)(1-\alpha)\rceil$ with $\alpha=0.05$. Intervals are $[\max(0,\hat y_i-q_i s_i),\hat y_i+q_i s_i]$. Pooled fixed uses all calibration residuals; commodity fixed uses crop-specific residuals. The existing state/commodity grouping reduces to commodity grouping in this one-state cohort and is reused transparently.
+\subsection{Date-Batched Adaptive Calibration}
+Commodity adaptive calibration retains the last $W$ residual observations per crop. The validation grid uses $W\in\{250,500\}$ and $\gamma\in\{0.005,0.02\}$. All observations in date batch $t$ receive intervals before any outcomes in that batch update the histories. After revelation,
+\begin{equation}\alpha_{c,t+1}=\operatorname{clip}\big(\alpha_{c,t}+\gamma(0.05-\overline m_{c,t}),0.005,0.2\big),\end{equation}
+where $\overline m$ is the crop's batch miss rate. Fewer than 100 group residuals or an unsupported order rank triggers fallback to the original pooled 95\% quantile. Clipping and fallback counts are recorded. The rolling, clipped and batched implementation is ACI-inspired; no general coverage guarantee is claimed.
+\section{Experimental Protocol}
+The task is rolling one-day-ahead prediction using observations strictly before each target date. It assumes earlier reporting is available and does not evaluate multi-day forecasts from one frozen origin. Three expanding validation quarters in 2023 each use a preceding 90-day calibration segment withheld from that fold's proper training data. All learned configurations use identical partitions. Model selection minimizes mean validation WAPE plus 0.25 times its across-fold standard deviation; crop routing is selected per commodity. Random Forest and log-LightGBM choices use global validation aggregates.
+Adaptive settings minimize validation mean interval score among configurations with mean coverage at least 94\%; otherwise closest nominal coverage is chosen, then interval score. Final proper training ends September 2023, with October--December calibration. Settings and model hashes freeze before later acquisition. January--March 2024 is explicitly previously inspected. Later evaluation starts adaptive histories from the same October--December pool, not January--March residuals; prior observed arrivals remain available as forecasting features.
+\subsection{Metrics and Ablations}
+Point metrics are MAE and RMSE in tonnes, WAPE and $R^2$. WAPE is an error measure, not accuracy. Interval metrics are empirical coverage, signed gap from 95\%, mean width and mean interval score:
+\begin{align}IS_\alpha(l,u;y)={}&(u-l)+\frac{2}{\alpha}(l-y)\mathbf1\{y<l\}\nonumber\\&+\frac{2}{\alpha}(y-u)\mathbf1\{y>u\}.\end{align}
+A prespecified log-LightGBM (15 leaves, 400 trees) is retrained with full features, without price\_lag/price\_mean\_7/price\_mean\_28, and without weekday/month/year\_day plus four cyclic features. Arrival lags still retain indirect seasonality. Rows and remaining settings stay identical. Fixed commodity calibration is the primary ablation comparison; inherited adaptive settings are secondary. Results are saved overall and by crop, market and month, with at least 30 subgroup observations.
+Paired differences use 300 resamples of entire dates, retaining all markets within each date. This preserves within-date dependence but treats date blocks as independent and ignores serial dependence. Bootstrap intervals are descriptive; an interval-score difference whose interval includes zero does not establish clear superiority. Training and inference times are measured on one machine, excluding common feature construction, and are not speed guarantees.
+\section{Executed Results}
+On the later April-June benchmark, Reselected LGBM bundle has the lowest WAPE among the recorded main and preserved-reference forecasts (19.80\%). For identical log-LightGBM point predictions, commodity fixed coverage is 90.79\% with mean width 194.135 tonnes; commodity adaptive coverage is 94.88\% with width 344.446 tonnes. Their mean interval scores are 495.119 and 475.210, respectively. These are empirical tradeoffs, not a universal superiority or causal claim. The later-period interval-score difference has a descriptive paired interval that includes zero.
+\subsection{Previously inspected January-March 2024}
+The evaluation contains 4,965 eligible observed targets. Missing calendar rows are excluded rather than imputed as zero.
+\begin{table}[!ht]\centering\small\caption{Point forecasts: Previously inspected January-March 2024.}\begin{tabular}{lrrrr}
+\toprule
+Model & MAE & RMSE & WAPE & R$^2$ \\
+\midrule
+Rolling mean & 37.960 & 150.312 & 27.71\% & 0.644 \\
+Weekly seasonal & 43.493 & 161.742 & 31.75\% & 0.588 \\
+Random Forest & 31.970 & 149.687 & 23.34\% & 0.647 \\
+Log-LightGBM & 29.810 & 149.830 & 21.76\% & 0.646 \\
+Reselected LGBM bundle & 30.945 & 154.259 & 22.59\% & 0.625 \\
+Original log-LGBM / full & 29.946 & 149.437 & 21.86\% & 0.648 \\
+Existing LGBM bundle & 31.242 & 155.374 & 22.81\% & 0.620 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!ht]\centering\small\caption{Same point forecasts, 95\% nominal intervals. Gap is in percentage points.}\begin{tabular}{lrrrr}
+\toprule
+Calibration & Cov. & Gap & Width & IS \\
+\midrule
+Commodity adaptive & 94.72\% & -0.28 & 194.471 & 374.341 \\
+Commodity fixed & 91.94\% & -3.06 & 148.822 & 392.924 \\
+Pooled fixed & 92.02\% & -2.98 & 148.772 & 391.396 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!ht]\centering\scriptsize\caption{Commodity breakdown: Previously inspected January-March 2024.}\begin{tabular}{llrrr}
+\toprule
+Crop & Method & n & Cov. & Width \\
+\midrule
+Onion & Crop adaptive & 1288 & 94.80\% & 70.807 \\
+Potato & Crop adaptive & 1289 & 94.80\% & 178.090 \\
+Rice & Crop adaptive & 1193 & 94.22\% & 242.538 \\
+Wheat & Crop adaptive & 1195 & 95.06\% & 297.443 \\
+Onion & Crop fixed & 1288 & 93.17\% & 60.555 \\
+Potato & Crop fixed & 1289 & 93.72\% & 160.762 \\
+Rice & Crop fixed & 1193 & 89.94\% & 169.505 \\
+Wheat & Crop fixed & 1195 & 90.71\% & 210.429 \\
+Onion & Pooled fixed & 1288 & 92.78\% & 58.200 \\
+Potato & Pooled fixed & 1289 & 93.87\% & 165.922 \\
+Rice & Pooled fixed & 1193 & 91.03\% & 179.894 \\
+Wheat & Pooled fixed & 1195 & 90.21\% & 196.822 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!ht]\centering\small\caption{Feature ablations: same rows and fixed log-LightGBM settings.}\begin{tabular}{lrrrr}
+\toprule
+Variant & MAE & WAPE & Cov. & Width \\
+\midrule
+Without price & 30.031 & 21.93\% & 92.06\% & 150.912 \\
+Without calendar & 29.747 & 21.72\% & 92.23\% & 151.583 \\
+Original log-LGBM / full & 29.946 & 21.86\% & 91.92\% & 150.124 \\
+\bottomrule
+\end{tabular}
+\end{table}
+adaptive-minus-pooled\_fixed: coverage difference 0.0270 [0.0213, 0.0331]; width difference 45.6996 [42.3307, 49.5597]; interval\_score difference -17.0553 [-34.9816, 0.4542].
+adaptive-minus-commodity\_fixed: coverage difference 0.0278 [0.0226, 0.0336]; width difference 45.6498 [42.3252, 49.5678]; interval\_score difference -18.5835 [-33.4814, -3.7106].
+\subsection{Later April-June 2024}
+The evaluation contains 4,801 eligible observed targets. Missing calendar rows are excluded rather than imputed as zero.
+\begin{table}[!ht]\centering\small\caption{Point forecasts: Later April-June 2024.}\begin{tabular}{lrrrr}
+\toprule
+Model & MAE & RMSE & WAPE & R$^2$ \\
+\midrule
+Rolling mean & 63.317 & 179.693 & 33.51\% & 0.728 \\
+Weekly seasonal & 72.675 & 203.804 & 38.46\% & 0.650 \\
+Random Forest & 38.712 & 112.172 & 20.49\% & 0.894 \\
+Log-LightGBM & 38.272 & 118.213 & 20.25\% & 0.882 \\
+Reselected LGBM bundle & 37.424 & 116.869 & 19.80\% & 0.885 \\
+Original log-LGBM / full & 38.538 & 120.909 & 20.39\% & 0.877 \\
+Existing LGBM bundle & 37.977 & 117.973 & 20.10\% & 0.883 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!ht]\centering\small\caption{Same point forecasts, 95\% nominal intervals. Gap is in percentage points.}\begin{tabular}{lrrrr}
+\toprule
+Calibration & Cov. & Gap & Width & IS \\
+\midrule
+Commodity adaptive & 94.88\% & -0.12 & 344.446 & 475.210 \\
+Commodity fixed & 90.79\% & -4.21 & 194.135 & 495.119 \\
+Pooled fixed & 90.65\% & -4.35 & 188.484 & 500.412 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!ht]\centering\scriptsize\caption{Commodity breakdown: Later April-June 2024.}\begin{tabular}{llrrr}
+\toprule
+Crop & Method & n & Cov. & Width \\
+\midrule
+Onion & Crop adaptive & 1253 & 95.37\% & 75.904 \\
+Potato & Crop adaptive & 1254 & 95.30\% & 154.403 \\
+Rice & Crop adaptive & 1147 & 93.98\% & 144.153 \\
+Wheat & Crop adaptive & 1147 & 94.77\% & 1045.870 \\
+Onion & Crop fixed & 1253 & 91.94\% & 55.954 \\
+Potato & Crop fixed & 1254 & 93.86\% & 129.672 \\
+Rice & Crop fixed & 1147 & 91.19\% & 109.278 \\
+Wheat & Crop fixed & 1147 & 85.79\% & 500.418 \\
+Onion & Pooled fixed & 1253 & 91.22\% & 53.782 \\
+Potato & Pooled fixed & 1254 & 94.34\% & 133.821 \\
+Rice & Pooled fixed & 1147 & 92.07\% & 115.908 \\
+Wheat & Pooled fixed & 1147 & 84.57\% & 467.971 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!ht]\centering\small\caption{Feature ablations: same rows and fixed log-LightGBM settings.}\begin{tabular}{lrrrr}
+\toprule
+Variant & MAE & WAPE & Cov. & Width \\
+\midrule
+Without price & 38.576 & 20.41\% & 90.84\% & 194.975 \\
+Without calendar & 38.664 & 20.46\% & 91.06\% & 199.220 \\
+Original log-LGBM / full & 38.538 & 20.39\% & 90.92\% & 194.067 \\
+\bottomrule
+\end{tabular}
+\end{table}
+adaptive-minus-pooled\_fixed: coverage difference 0.0423 [0.0357, 0.0490]; width difference 155.9624 [133.0650, 183.4572]; interval\_score difference -25.2021 [-87.9286, 34.5279].
+adaptive-minus-commodity\_fixed: coverage difference 0.0408 [0.0350, 0.0486]; width difference 150.3115 [127.4359, 173.7172]; interval\_score difference -19.9093 [-76.6260, 36.1274].
+\section{Discussion and Limitations}
+Coverage and width must be interpreted together. On the later period, adaptive calibration improves coverage by widening intervals substantially; its mean interval-score reduction has a date-block interval crossing zero. This result supports a tradeoff, not clear dominance. A narrower interval can arise from undercoverage, and lower aggregate error can hide commodity or market weaknesses. A validation winner need not remain a test winner. The inspected quarter cannot provide a new independent generalization claim. Even a newly acquired later period is limited to the same region and reporting process. Windows and model searches are small and budget-limited. Reporting latency, calendar dependence and group sparsity remain important practical issues. Independent date-block resampling understates some temporal dependence uncertainty.
+\subsection{Supporting Components}
+The webpage's main and regional warehouse inventory, consumption, fuel prices, strikes and floods are deterministic synthetic scenarios. Its coloured response scores are heuristic feasibility assessments, not calibrated success probabilities. Delhivery logistics records come from an educational mirror and support separate exploratory observational analysis; there is no verified shipment join to market data. Causal identification remains unsupported, and real actions stay withheld. Existing predictive gate ablations accepted 100\% of historical predictions and demonstrate no selective benefit. No demand forecasting, stock-out reduction, savings, disaster prediction or causal improvement is inferred from market-arrival metrics.
+\subsection{Unfinished Work}
+This is a rough staff-review draft, not a publication-ready paper. Author/affiliation, broader literature coverage, external-region validation, reporting-delay audit, serial-dependence-aware inference, additional time-series calibration comparators and prospective business evaluation remain unfinished. We do not claim first use, novelty, a new theorem or universal superiority.
+\section{Conclusion}
+SupplyGuard provides an executed, reproducible comparison of fixed pooled, fixed commodity and rolling adaptive commodity calibration around common one-day-ahead agricultural market forecasts. The findings should be read as measured coverage--width--score tradeoffs within the documented cohort. Negative and inconclusive outcomes remain part of the record. The working application and earlier model artifacts are preserved separately.
+\begin{thebibliography}{9}
+\bibitem{gibbs2021} I. Gibbs and E. Candes, ``Adaptive Conformal Inference Under Distribution Shift,'' Advances in Neural Information Processing Systems, vol. 34, 2021.
+\bibitem{romano2020} Y. Romano, R. F. Barber, C. Sabatti, and E. Candes, ``With Malice Toward None: Assessing Uncertainty via Equalized Coverage,'' Harvard Data Science Review, vol. 2, no. 2, 2020.
+\bibitem{xu2021} C. Xu and Y. Xie, ``Conformal prediction interval for dynamic time-series,'' Proceedings of ICML, PMLR, vol. 139, pp. 11559--11569, 2021.
+\bibitem{makridakis2022} S. Makridakis, E. Spiliotis, and V. Assimakopoulos, ``M5 accuracy competition: Results, findings, and conclusions,'' International Journal of Forecasting, vol. 38, no. 4, pp. 1346--1364, 2022, doi:10.1016/j.ijforecast.2021.11.013.
+\end{thebibliography}\end{document}

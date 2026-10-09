@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "scope": "Independent metric recomputation from saved row-level predictions and date-timing audit; not a second full model-training rerun",
+  "point_metric_errors": [],
+  "interval_metric_errors": [],
+  "all_intervals_precede_own_outcomes": true,
+  "production_files_preserved": 55
+}

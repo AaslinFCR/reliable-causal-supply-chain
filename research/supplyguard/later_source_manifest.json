@@ -1,0 +1,252 @@
+{
+  "requested_period": [
+    "2024-04-01",
+    "2024-06-30"
+  ],
+  "status": "COMPLETE",
+  "errors": [],
+  "sources": [
+    {
+      "file": "data\\raw\\official\\34_1_2024_04.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 1,
+        "year": 2024,
+        "month": 4
+      },
+      "sha256": "c0341ebaf17cd8386007ca14effbb4152c017a3c7c519b5de82bf05e6b023320",
+      "response_sha256": "97780496510ed4bc44192b635b7e649a857395bf691288a7d1e3b3eb510a4242",
+      "market_count": 196,
+      "market_days": 3649,
+      "bytes": 36370,
+      "retrieved_utc": "2026-10-09T11:01:54.142082+00:00",
+      "verified_utc": "2026-10-09T11:01:54.195498+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_1_2024_05.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 1,
+        "year": 2024,
+        "month": 5
+      },
+      "sha256": "839532a875cc1256c79b91cb11e9e9797a42b5f16c3f53892625a3ad0e579dab",
+      "response_sha256": "ddd09b1cb2b7213cebea571f1e5173c47af5e23d47c97debf4c263facd905762",
+      "market_count": 200,
+      "market_days": 4209,
+      "bytes": 40567,
+      "retrieved_utc": "2026-10-09T11:02:07.281148+00:00",
+      "verified_utc": "2026-10-09T11:02:07.327541+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_1_2024_06.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 1,
+        "year": 2024,
+        "month": 6
+      },
+      "sha256": "c8dd461ef3b3503eb11ba8b35c1062da39548107581cb182ad9245209a18fd1a",
+      "response_sha256": "7075394c846d888b0b08098081cf2eee432ffde001e5030c5b7f77231694d54d",
+      "market_count": 191,
+      "market_days": 3801,
+      "bytes": 36722,
+      "retrieved_utc": "2026-10-09T11:02:17.536468+00:00",
+      "verified_utc": "2026-10-09T11:02:17.589993+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_3_2024_04.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 3,
+        "year": 2024,
+        "month": 4
+      },
+      "sha256": "3b300ee108f97792abb82d72df8ee8291b404e19aba5cc267933a2acc0472d82",
+      "response_sha256": "32fce63288245f2f3daade5bb46ac1484ff1df107e4a6b9341a80450d99a453c",
+      "market_count": 143,
+      "market_days": 2558,
+      "bytes": 25676,
+      "retrieved_utc": "2026-10-09T11:02:25.476464+00:00",
+      "verified_utc": "2026-10-09T11:02:25.517360+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_3_2024_05.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 3,
+        "year": 2024,
+        "month": 5
+      },
+      "sha256": "7c7dfcbd67d01ce7d6556d7afee4b5b02c76ab1b49b430b0502d85fbde7148ed",
+      "response_sha256": "93c45a2db6dd567669213c2a5d2bc816f8bb030d36afbcb88e34ecc67f7ba6bc",
+      "market_count": 143,
+      "market_days": 2842,
+      "bytes": 27784,
+      "retrieved_utc": "2026-10-09T11:02:33.895914+00:00",
+      "verified_utc": "2026-10-09T11:02:33.936724+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_3_2024_06.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 3,
+        "year": 2024,
+        "month": 6
+      },
+      "sha256": "e47c109a353c0ff636a4516e3e5d308afc7e62661edc080313d2b923d0092dba",
+      "response_sha256": "6065c34f0f967222e0d08fbc9905a3bd47b6d3fb8f2fa7183843bf1bf25f5e2b",
+      "market_count": 142,
+      "market_days": 2694,
+      "bytes": 26765,
+      "retrieved_utc": "2026-10-09T11:02:42.174515+00:00",
+      "verified_utc": "2026-10-09T11:02:42.216956+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_23_2024_04.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 23,
+        "year": 2024,
+        "month": 4
+      },
+      "sha256": "00cf8fd082506b1725b054fe8ed4d19325e974772b3a2c0bcba8265e8ee2c9b1",
+      "response_sha256": "a8a9d90b16d52f95cfb0d4e5217b2c7abae4ed7984f9034f7956d9d5f4212cca",
+      "market_count": 199,
+      "market_days": 4162,
+      "bytes": 37892,
+      "retrieved_utc": "2026-10-09T11:02:55.094761+00:00",
+      "verified_utc": "2026-10-09T11:02:55.141006+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_23_2024_05.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 23,
+        "year": 2024,
+        "month": 5
+      },
+      "sha256": "f9ac58f2c89c7b161a613735c469227ff070d8c58ca3eab28f2b9fa8ae078a6f",
+      "response_sha256": "bf27dd57114f5e5d688e8fb007022e32a09edf0e443a4c78f987ce99c54578fc",
+      "market_count": 199,
+      "market_days": 4647,
+      "bytes": 41784,
+      "retrieved_utc": "2026-10-09T11:03:07.192268+00:00",
+      "verified_utc": "2026-10-09T11:03:07.248239+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_23_2024_06.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 23,
+        "year": 2024,
+        "month": 6
+      },
+      "sha256": "1206c10397da208f9dc62b2b371db5040e619292298d04c2c548115be6a167b7",
+      "response_sha256": "239814928b3dfc0dca0f33747ea1f939a18b1368151658538c7ee632211ad1a4",
+      "market_count": 195,
+      "market_days": 4424,
+      "bytes": 43989,
+      "retrieved_utc": "2026-10-09T11:03:20.182252+00:00",
+      "verified_utc": "2026-10-09T11:03:20.231176+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_24_2024_04.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 24,
+        "year": 2024,
+        "month": 4
+      },
+      "sha256": "93298e1b47d40165ef5c7fa961f21d44f245760b0731ff646305e39637887364",
+      "response_sha256": "1f9f374bd3d3317f7b7ab85852d08aa45b88671ebe11b0c7caf2482f56c80ac3",
+      "market_count": 207,
+      "market_days": 4490,
+      "bytes": 44390,
+      "retrieved_utc": "2026-10-09T11:03:32.593662+00:00",
+      "verified_utc": "2026-10-09T11:03:32.646607+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_24_2024_05.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 24,
+        "year": 2024,
+        "month": 5
+      },
+      "sha256": "7280b88439ae22038c60b5b559fe302c0f8db08ccea65ffd6bee435a02061e8b",
+      "response_sha256": "fc301515c77dc17188e027de98ee05e94ac8be259399014016a7d0353f22b78b",
+      "market_count": 207,
+      "market_days": 4893,
+      "bytes": 44670,
+      "retrieved_utc": "2026-10-09T11:03:45.239954+00:00",
+      "verified_utc": "2026-10-09T11:03:45.288703+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    },
+    {
+      "file": "data\\raw\\official\\34_24_2024_06.json.gz",
+      "url": "https://api.agmarknet.gov.in/v1/prices-and-arrivals/date-wise/specific-commodity",
+      "parameters": {
+        "stateId": 34,
+        "commodityId": 24,
+        "year": 2024,
+        "month": 6
+      },
+      "sha256": "95127b31cc772c661e623a079a01b7529c81cfd7c34b06a0990b1f4f57eec904",
+      "response_sha256": "27b70d8a021fa2a73f20c4a49fff9bd6e83e85a7f56ade90e36d594e59820b5f",
+      "market_count": 205,
+      "market_days": 4658,
+      "bytes": 45758,
+      "retrieved_utc": "2026-10-09T11:03:57.170275+00:00",
+      "verified_utc": "2026-10-09T11:03:57.222468+00:00",
+      "source": "Government of India AGMARKNET",
+      "licence": "Government source attribution retained; redistribution terms require verification."
+    }
+  ],
+  "preexisting_files": [],
+  "settings_frozen_before_attempt": true,
+  "observations": 4805,
+  "newly_acquired_after_freeze": true,
+  "missingness": {
+    "state": 0,
+    "market": 0,
+    "commodity": 0,
+    "date": 0,
+    "arrivals": 0,
+    "modal_price": 0
+  },
+  "date_min": "2024-04-01 00:00:00",
+  "date_max": "2024-06-30 00:00:00"
+}

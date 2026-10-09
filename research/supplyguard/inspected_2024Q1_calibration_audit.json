@@ -1,0 +1,245 @@
+{
+  "rolling_mean/pooled_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "pooled_fixed",
+    "window": 250,
+    "gamma": 0.02,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "rolling_mean/commodity_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_fixed",
+    "window": 250,
+    "gamma": 0.02,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "rolling_mean/commodity_adaptive": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_adaptive",
+    "window": 250,
+    "gamma": 0.02,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "weekly_seasonal/pooled_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "pooled_fixed",
+    "window": 250,
+    "gamma": 0.02,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "weekly_seasonal/commodity_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_fixed",
+    "window": 250,
+    "gamma": 0.02,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "weekly_seasonal/commodity_adaptive": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_adaptive",
+    "window": 250,
+    "gamma": 0.02,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "random_forest/pooled_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "pooled_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "random_forest/commodity_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "random_forest/commodity_adaptive": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_adaptive",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "log_lightgbm/pooled_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "pooled_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "log_lightgbm/commodity_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "log_lightgbm/commodity_adaptive": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_adaptive",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "selected_lightgbm_bundle/pooled_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "pooled_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "selected_lightgbm_bundle/commodity_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "selected_lightgbm_bundle/commodity_adaptive": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_adaptive",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "ablation_without_price/pooled_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "pooled_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "ablation_without_price/commodity_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "ablation_without_price/commodity_adaptive": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_adaptive",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "ablation_without_seasonality/pooled_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "pooled_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "ablation_without_seasonality/commodity_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "ablation_without_seasonality/commodity_adaptive": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_adaptive",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "prespecified_log_full/pooled_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "pooled_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "prespecified_log_full/commodity_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "prespecified_log_full/commodity_adaptive": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_adaptive",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "existing_lightgbm_bundle/pooled_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "pooled_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "existing_lightgbm_bundle/commodity_fixed": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_fixed",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  },
+  "existing_lightgbm_bundle/commodity_adaptive": {
+    "fallback_rows": 0,
+    "alpha_clipping_updates": 0,
+    "method": "commodity_adaptive",
+    "window": 500,
+    "gamma": 0.005,
+    "minimum_group_count": 100,
+    "fallback": "Initial pooled fixed quantile at nominal coverage, never future outcomes"
+  }
+}

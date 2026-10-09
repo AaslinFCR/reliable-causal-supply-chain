@@ -1,0 +1,24 @@
+{
+  "reason": "Measure baseline inference time explicitly and include unchanged original production routing as a fixed reference.",
+  "reference_routing": {
+    "Onion": "raw_l1",
+    "Potato": "ratio_l1",
+    "Rice": "ratio_l1",
+    "Wheat": "raw_l1_small"
+  },
+  "reference_card_sha256": "201e762549045cf334004190ee34ea5438259ccd72392afbf412a3f2a9922253",
+  "reference_settings_preexisting_freeze_utc": "2026-10-07T15:55:50.296869+00:00",
+  "reference_adaptive_settings": "Inherits validation-selected log-LightGBM settings; not separately tuned",
+  "no_new_model_selection_on_test": true,
+  "original_reference_refit_only": true,
+  "model_hashes": {
+    "ablation_without_price.joblib": "d5a91e578ae0bf968b1f646b7715397cc8162c972e70ccfdb2586245be6f32cb",
+    "ablation_without_seasonality.joblib": "bc7fb5227dc84b1ded07f9fe02b55c73ee5ca7335e8034ce3d96665e3bc464de",
+    "log_l2.joblib": "f228d883dca83463234fe039c718abf87c911d6fc3dcb64382ad963336550436",
+    "log_l2_31.joblib": "e5ef1ad0e5dece94fc52e4da67eeecb8d2a47412167841f79870971534d8a012",
+    "ratio_l1.joblib": "b825328039e847d9ae26db363f95e24701d43abcb0bebe0dbe3c1a357e92fa45",
+    "raw_l1.joblib": "6a9b08ebba30de3604d023a2cf0bbd14e586a271b5d392a08356d3eb8fe29792",
+    "raw_l1_small.joblib": "958500466746f9998165d3865003b49cbe0824846912e90c49cb5f5981f811bb",
+    "rf_raw.joblib": "29d96abae310dfc3082a4f34ac0248c38641298dc3d7d59ffff9db28a8fed542"
+  }
+}

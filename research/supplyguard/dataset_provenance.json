@@ -1,0 +1,57 @@
+{
+  "existing_data": {
+    "file": "data/processed/deployment_observations.csv",
+    "sha256": "535e978482b327916fd6ee58cf50bf520ad4c2d4fa4fdca0d08a03942133d5a6",
+    "rows": 64613,
+    "source": "Government AGMARKNET",
+    "period": "2021-01-01 to 2024-03-31",
+    "previously_inspected_test": true
+  },
+  "partitions": [
+    {
+      "fold": 0,
+      "train_n": 33921,
+      "calibration_n": 4793,
+      "validation_n": 4957,
+      "train_end": "2022-10-02 00:00:00",
+      "calibration_start": "2022-10-03 00:00:00",
+      "calibration_end": "2022-12-31 00:00:00",
+      "validation_start": "2023-01-01",
+      "validation_end_exclusive": "2023-04-01"
+    },
+    {
+      "fold": 1,
+      "train_n": 38714,
+      "calibration_n": 4957,
+      "validation_n": 4988,
+      "train_end": "2022-12-31 00:00:00",
+      "calibration_start": "2023-01-01 00:00:00",
+      "calibration_end": "2023-03-31 00:00:00",
+      "validation_start": "2023-04-01",
+      "validation_end_exclusive": "2023-07-01"
+    },
+    {
+      "fold": 2,
+      "train_n": 43723,
+      "calibration_n": 4936,
+      "validation_n": 5065,
+      "train_end": "2023-04-01 00:00:00",
+      "calibration_start": "2023-04-02 00:00:00",
+      "calibration_end": "2023-06-30 00:00:00",
+      "validation_start": "2023-07-01",
+      "validation_end_exclusive": "2023-10-01"
+    }
+  ],
+  "inspected_2024Q1": {
+    "n": 4965,
+    "date_min": "2024-01-01 00:00:00",
+    "date_max": "2024-03-31 00:00:00",
+    "missing_calendar_rows": 859
+  },
+  "later_2024Q2": {
+    "n": 4801,
+    "date_min": "2024-04-01 00:00:00",
+    "date_max": "2024-06-30 00:00:00",
+    "missing_calendar_rows": 986
+  }
+}

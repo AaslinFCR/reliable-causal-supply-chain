@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "tests": 89,
+  "new_checks": 6,
+  "command": "python -m pytest -q -p no:cacheprovider --basetemp=.build/supplyguard-full-checks",
+  "warning": "Existing Starlette/httpx deprecation warning",
+  "lint": "passed"
+}

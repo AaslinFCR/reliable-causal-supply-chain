@@ -1,0 +1,20 @@
+{
+  "existing_model": "LightGBM",
+  "target": "Agricultural market arrivals in metric tonnes",
+  "production_feature_count": 34,
+  "warehouse_disruptions": "Synthetic deterministic demonstration scenarios",
+  "dataset_join": "AGMARKNET and Delhivery are separate; no verified shared shipment key",
+  "existing_gate_acceptance": 1.0,
+  "existing_gate_selective_benefit": "Not demonstrated",
+  "research_question": "Does commodity-specific rolling adaptive conformal calibration improve coverage-width tradeoffs versus pooled and commodity fixed calibration?",
+  "current_model_version": "18e5692d481b0f84",
+  "proof_files": {
+    "scrc/production/features.py": "e20c6765aaf8c4ea90033e487310958429f7dd368f9c463c9b954ee52c18379d",
+    "scrc/models/forecaster.py": "dd85f53d3bb50ac60b2783797a96314c76a87c7962ccab369e6c4ef6e7450ff1",
+    "scrc/production/crisis.py": "5329637995056a5728dd2261ee86c2626ced9cb026edad5a821b6da12cdc62a4",
+    "experiments/market_results.csv": "a1c451022b5467f67cac480e6c9d0cc980cb6230cefe9fa92d7bdfce7d2bed86",
+    "reports/source_manifest.json": "d5b2b46edab2ec9e18f650c47c367239eb1c0b7dbad509df0c8e95dcb6cbc8cd",
+    "reports/DEPLOYMENT_EVALUATION.json": "ffd751bae4c8a289abcfc77f5674cf39b5423721b052864fb4049f7e9f66785c"
+  },
+  "new_experiments_status": "Completed, executed and independently numerically rechecked; 89 tests passed. See completed.json and NUMERICAL_RECHECK.json."
+}

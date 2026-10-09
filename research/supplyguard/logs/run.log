@@ -1,0 +1,80 @@
+Validation fold 1/3: log_l2 (33921 train rows)
+Validation fold 1/3: raw_l1 (33921 train rows)
+Validation fold 1/3: raw_l2 (33921 train rows)
+Validation fold 1/3: tweedie (33921 train rows)
+Validation fold 1/3: poisson (33921 train rows)
+Validation fold 1/3: ratio_l1 (33921 train rows)
+Validation fold 1/3: raw_l1_small (33921 train rows)
+Validation fold 1/3: huber (33921 train rows)
+Validation fold 1/3: log_l2_31 (33921 train rows)
+Validation fold 1/3: rf_raw (33921 train rows)
+Validation fold 1/3: rf_log (33921 train rows)
+Validation fold 2/3: log_l2 (38714 train rows)
+Validation fold 2/3: raw_l1 (38714 train rows)
+Validation fold 2/3: raw_l2 (38714 train rows)
+Validation fold 2/3: tweedie (38714 train rows)
+Validation fold 2/3: poisson (38714 train rows)
+Validation fold 2/3: ratio_l1 (38714 train rows)
+Validation fold 2/3: raw_l1_small (38714 train rows)
+Validation fold 2/3: huber (38714 train rows)
+Validation fold 2/3: log_l2_31 (38714 train rows)
+Validation fold 2/3: rf_raw (38714 train rows)
+Validation fold 2/3: rf_log (38714 train rows)
+Validation fold 3/3: log_l2 (43723 train rows)
+Validation fold 3/3: raw_l1 (43723 train rows)
+Validation fold 3/3: raw_l2 (43723 train rows)
+Validation fold 3/3: tweedie (43723 train rows)
+Validation fold 3/3: poisson (43723 train rows)
+Validation fold 3/3: ratio_l1 (43723 train rows)
+Validation fold 3/3: raw_l1_small (43723 train rows)
+Validation fold 3/3: huber (43723 train rows)
+Validation fold 3/3: log_l2_31 (43723 train rows)
+Validation fold 3/3: rf_raw (43723 train rows)
+Validation fold 3/3: rf_log (43723 train rows)
+Adaptive validation selection: rolling_mean
+Adaptive validation selection: weekly_seasonal
+Adaptive validation selection: random_forest
+Adaptive validation selection: log_lightgbm
+Adaptive validation selection: selected_lightgbm_bundle
+Final pre-acquisition fit: log_l2
+Final pre-acquisition fit: raw_l1
+Final pre-acquisition fit: ratio_l1
+Final pre-acquisition fit: log_l2_31
+Final pre-acquisition fit: rf_raw
+SELECTION AND CALIBRATION FROZEN; attempting later sources.
+Later source attempt: crop=1 month=4
+Later source attempt: crop=1 month=5
+Later source attempt: crop=1 month=6
+Later source attempt: crop=3 month=4
+Later source attempt: crop=3 month=5
+Later source attempt: crop=3 month=6
+Later source attempt: crop=23 month=4
+Later source attempt: crop=23 month=5
+Later source attempt: crop=23 month=6
+Later source attempt: crop=24 month=4
+Later source attempt: crop=24 month=5
+Later source attempt: crop=24 month=6
+          period                        model       mae       rmse     wape       r2
+inspected_2024Q1                 rolling_mean 37.960348 150.312107 0.277141 0.643980
+inspected_2024Q1              weekly_seasonal 43.492896 161.742275 0.317533 0.587775
+inspected_2024Q1                random_forest 31.969826 149.686744 0.233405 0.646936
+inspected_2024Q1                 log_lightgbm 29.810247 149.830159 0.217639 0.646259
+inspected_2024Q1     selected_lightgbm_bundle 30.945161 154.258582 0.225925 0.625039
+inspected_2024Q1       ablation_without_price 30.031243 149.126654 0.219252 0.649573
+inspected_2024Q1 ablation_without_seasonality 29.747185 148.927487 0.217178 0.650508
+inspected_2024Q1        prespecified_log_full 29.946174 149.437165 0.218631 0.648112
+    later_2024Q2                 rolling_mean 63.317143 179.692814 0.335071 0.727664
+    later_2024Q2              weekly_seasonal 72.674745 203.804297 0.384591 0.649675
+    later_2024Q2                random_forest 38.712048 112.172009 0.204862 0.893876
+    later_2024Q2                 log_lightgbm 38.272212 118.212755 0.202534 0.882138
+    later_2024Q2     selected_lightgbm_bundle 37.423518 116.869385 0.198043 0.884802
+    later_2024Q2       ablation_without_price 38.576034 120.737605 0.204142 0.877050
+    later_2024Q2 ablation_without_seasonality 38.663645 121.500772 0.204606 0.875491
+    later_2024Q2        prespecified_log_full 38.538468 120.909391 0.203943 0.876700
+          period        model             method   level group    n  coverage  coverage_gap  mean_width  mean_interval_score
+inspected_2024Q1 log_lightgbm commodity_adaptive overall   all 4965  0.947231     -0.002769  194.471312           374.340947
+inspected_2024Q1 log_lightgbm    commodity_fixed overall   all 4965  0.919436     -0.030564  148.821530           392.924439
+inspected_2024Q1 log_lightgbm       pooled_fixed overall   all 4965  0.920242     -0.029758  148.771747           391.396252
+    later_2024Q2 log_lightgbm commodity_adaptive overall   all 4801  0.948761     -0.001239  344.446081           475.210132
+    later_2024Q2 log_lightgbm    commodity_fixed overall   all 4801  0.907936     -0.042064  194.134591           495.119454
+    later_2024Q2 log_lightgbm       pooled_fixed overall   all 4801  0.906478     -0.043522  188.483685           500.412209
