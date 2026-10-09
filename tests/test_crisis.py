@@ -93,3 +93,18 @@ def test_replayed_day_does_not_consume_inventory_twice(network):
     first = total(engine)
     planner.advance(1)
     assert total(engine) == first
+
+
+def test_main_stockout_with_surge_produces_four_gated_options(network):
+    engine, planner = network
+    with engine.store.connect() as db:
+        db.execute("UPDATE stock SET tonnes=0 WHERE warehouse_id='DEMO-MAIN' AND commodity='Rice'")
+        db.execute("UPDATE stock SET tonnes=0 WHERE warehouse_id='DEMO-SOUTH' AND commodity='Rice'")
+    result = planner.advance(4)
+    plan = next(p for p in result["plans"] if p["region"] == "South" and p["commodity"] == "Rice")
+    assert plan["main_stock_out"] and plan["demand_surge"]
+    assert plan["main_backup_below_reserve"]
+    assert len(plan["response_options"]) == 4
+    assert plan["decision_gate"] == "NO_RELIABLE_OPTION"
+    assert plan["simulated_transfer_tonnes"] == 0
+    assert plan["uncovered_shortfall_tonnes"] > 0

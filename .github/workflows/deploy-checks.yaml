@@ -25,7 +25,7 @@ jobs:
       - name: Check dashboard JavaScript
         run: node --check web/autopilot.js && node --check web/fulfillment.js
       - name: Warehouse and scenario integration tests
-        run: python run.py pytest -q tests/test_operations.py tests/test_fulfillment.py tests/test_alerts.py tests/test_crisis.py
+        run: python run.py pytest -q tests/test_operations.py tests/test_fulfillment.py tests/test_alerts.py tests/test_crisis.py tests/test_decision_options.py
       - name: Build deployment image
         run: docker build -t supplychain-ci .
       - name: Start and verify production container

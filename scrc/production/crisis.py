@@ -4,6 +4,7 @@ import json
 import math
 from statistics import mean
 
+from scrc.production.decision_options import evaluate_options
 from scrc.production.fulfillment import now
 
 
@@ -161,6 +162,29 @@ class CrisisPlanner:
                     elif hazards["fuel_price"] >= 104.5:
                         risk = "WATCH"
                         action = "Consolidate non-urgent loads; keep the three-day inventory buffer before deferring trips"
+                    peer_budget = 0.0
+                    for peer in regions:
+                        if peer["id"] == warehouse["id"]:
+                            continue
+                        peer_history = list(db.execute(
+                            "SELECT requested FROM crisis_demand WHERE warehouse_id=? AND commodity=? AND step<=? ORDER BY step DESC LIMIT 7",
+                            (peer["id"], crop, step),
+                        ))
+                        peer_daily = mean(r["requested"] for r in peer_history) if peer_history else 0
+                        if peer_history:
+                            peer_budget += max(0.0, engine.available(db, peer["id"], crop) - 3 * peer_daily * 1.25)
+                    options = evaluate_options(
+                        shortage, main_budget, free_capacity, blocked, len(past),
+                        peer_budget, hazards["fuel_price"] >= 104.5,
+                    )
+                    # Only the original main transfer can execute in this simulation.
+                    # No red/grey option passes the automatic action gate.
+                    main_option = next(o for o in options if o["id"] == "main_transfer")
+                    if main_option["gate"] != "PASS":
+                        feasible = 0.0
+                    if feasible <= 1e-8 and shortage > 0 and not blocked:
+                        action += "; automatic transfer withheld by reliability gate"
+                    selected = next((o for o in options if o["status"] == "GREEN"), None)
                     transfer_id = f"crisis-transfer-{step}-{warehouse['id']}-{crop}"
                     moved = 0.0
                     if (
@@ -219,6 +243,13 @@ class CrisisPlanner:
                     plans.append(
                         {
                             "warehouse_id": warehouse["id"],
+                            "main_available_before_response": engine.available(db, warehouse["parent_id"], crop) + moved,
+                            "main_stock_out": engine.available(db, warehouse["parent_id"], crop) + moved <= 1e-8,
+                            "main_backup_below_reserve": main_budget <= 1e-8,
+                            "demand_surge": hazards["demand_surge"] and warehouse["region"] == "South",
+                            "response_options": options,
+                            "selected_option_id": selected["id"] if selected else None,
+                            "decision_gate": "PASS" if selected else "NO_RELIABLE_OPTION",
                             "region": warehouse["region"],
                             "commodity": crop,
                             "daily_demand_forecast_tonnes": daily,
