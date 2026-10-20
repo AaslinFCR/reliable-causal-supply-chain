@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# PyInstaller build outputs
+build/
+dist/
+*.spec
+*.exe
+
+# Large generated results
+results/results.pkl
+report.html
