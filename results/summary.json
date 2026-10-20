@@ -1,0 +1,701 @@
+{
+ "n_seeds": 5,
+ "seeds": [
+  2026,
+  2027,
+  2028,
+  2029,
+  2030
+ ],
+ "forecast": {
+  "naive": {
+   "MAE": 481.92350974930366,
+   "RMSE": 712.7839213779658,
+   "WAPE": 15.384072668197934,
+   "Accuracy": 84.61592733180206,
+   "Bias": 0.1265912477808297,
+   "R2": 0.8039890260057462
+  },
+  "ma28": {
+   "MAE": 422.99298746518105,
+   "RMSE": 623.1568243619602,
+   "WAPE": 13.502421456056869,
+   "Accuracy": 86.49757854394313,
+   "Bias": 0.3149603350784758,
+   "R2": 0.8501975031407231
+  },
+  "RF": {
+   "MAE": 343.874340107146,
+   "RMSE": 513.7882532665227,
+   "WAPE": 10.976854408806014,
+   "Accuracy": 89.02314559119398,
+   "Bias": 1.5772982263406032,
+   "R2": 0.8980877432235845
+  },
+  "GBDT": {
+   "MAE": 344.7940366156882,
+   "RMSE": 518.4054120831261,
+   "WAPE": 11.006009728320622,
+   "Accuracy": 88.99399027167938,
+   "Bias": 3.569069447457507,
+   "R2": 0.8962497759358955
+  }
+ },
+ "forecast_sd": {
+  "naive": {
+   "WAPE": 0.24580845468231502,
+   "Accuracy": 0.24580845468231308
+  },
+  "ma28": {
+   "WAPE": 0.23380415352760153,
+   "Accuracy": 0.23380415352760336
+  },
+  "RF": {
+   "WAPE": 0.11580945810315164,
+   "Accuracy": 0.11580945810315242
+  },
+  "GBDT": {
+   "WAPE": 0.15594132887907766,
+   "Accuracy": 0.1559413288790806
+  }
+ },
+ "conformal": {
+  "split": {
+   "all_coverage": 85.71448467966574,
+   "all_coverage_sd": 1.6209000770940525,
+   "all_rel_width": 40.67620423633669,
+   "all_rel_width_sd": 2.5399388354236905,
+   "all_int_score": 2105.266528764946,
+   "all_int_score_sd": 75.26476376984317,
+   "shift_coverage": 73.33314549048487,
+   "shift_coverage_sd": 2.3823445633622464,
+   "shift_rel_width": 40.67620423633669,
+   "shift_rel_width_sd": 2.5399388354236905,
+   "shift_int_score": 3711.7273186833904,
+   "shift_int_score_sd": 243.42172693711933,
+   "normal_coverage": 89.7899761349735,
+   "normal_coverage_sd": 1.3421987617997584,
+   "normal_rel_width": 40.67620423633669,
+   "normal_rel_width_sd": 2.5399388354236905,
+   "normal_int_score": 1574.9341344167879,
+   "normal_int_score_sd": 23.922772563995316,
+   "min_series_cov": 67.85515320334261
+  },
+  "mondrian": {
+   "all_coverage": 85.29526462395543,
+   "all_coverage_sd": 1.5956317035943526,
+   "all_rel_width": 40.68094038712245,
+   "all_rel_width_sd": 2.787058565303962,
+   "all_int_score": 2160.4930594382085,
+   "all_int_score_sd": 40.01537099335538,
+   "shift_coverage": 72.82465637364844,
+   "shift_coverage_sd": 3.586734506182842,
+   "shift_rel_width": 40.44474381912251,
+   "shift_rel_width_sd": 4.566124976382568,
+   "shift_int_score": 3768.993742893791,
+   "shift_int_score_sd": 158.27317753814094,
+   "normal_coverage": 89.38268096694988,
+   "normal_coverage_sd": 1.3907087107136444,
+   "normal_rel_width": 40.87496075032641,
+   "normal_rel_width_sd": 3.4576832513167925,
+   "normal_int_score": 1630.5859621980865,
+   "normal_int_score_sd": 42.813681029708704,
+   "min_series_cov": 64.9025069637883
+  },
+  "aci": {
+   "all_coverage": 89.05013927576601,
+   "all_coverage_sd": 0.5197617829800719,
+   "all_rel_width": 44.49621380968544,
+   "all_rel_width_sd": 1.7919730193755388,
+   "all_int_score": 2184.9631363332232,
+   "all_int_score_sd": 67.95760431445767,
+   "shift_coverage": 82.04225331180976,
+   "shift_coverage_sd": 1.061579244296387,
+   "shift_rel_width": 49.91321081750741,
+   "shift_rel_width_sd": 3.0342797947964044,
+   "shift_int_score": 3555.870782851763,
+   "shift_int_score_sd": 190.3762648127954,
+   "normal_coverage": 91.36399690821227,
+   "normal_coverage_sd": 0.6013281452569293,
+   "normal_rel_width": 43.331168313917274,
+   "normal_rel_width_sd": 2.052505658112886,
+   "normal_int_score": 1732.8515486801157,
+   "normal_int_score_sd": 27.294934728371537,
+   "min_series_cov": 86.23955431754874
+  },
+  "waci": {
+   "all_coverage": 89.57660167130919,
+   "all_coverage_sd": 0.38260931352333344,
+   "all_rel_width": 45.965175554951436,
+   "all_rel_width_sd": 1.8412620843159504,
+   "all_int_score": 2288.6705661721194,
+   "all_int_score_sd": 81.34975389888962,
+   "shift_coverage": 83.64803322110413,
+   "shift_coverage_sd": 1.4542053279526002,
+   "shift_rel_width": 53.07062183618416,
+   "shift_rel_width_sd": 3.8458842311129846,
+   "shift_int_score": 3618.8852770000076,
+   "shift_int_score_sd": 194.33999911298199,
+   "normal_coverage": 91.53652445459797,
+   "normal_coverage_sd": 0.7066605831572408,
+   "normal_rel_width": 44.40454510276889,
+   "normal_rel_width_sd": 2.1610306274121136,
+   "normal_int_score": 1850.378586225616,
+   "normal_int_score_sd": 40.421739020567585,
+   "min_series_cov": 87.24233983286908
+  },
+  "sacp": {
+   "all_coverage": 88.80779944289694,
+   "all_coverage_sd": 0.7322482174717794,
+   "all_rel_width": 44.57672001127394,
+   "all_rel_width_sd": 2.0560740483625555,
+   "all_int_score": 2164.4459253863106,
+   "all_int_score_sd": 59.56315529883096,
+   "shift_coverage": 81.60871814710026,
+   "shift_coverage_sd": 1.5467347731179022,
+   "shift_rel_width": 49.47789797516997,
+   "shift_rel_width_sd": 4.076418300630319,
+   "shift_int_score": 3549.206602018648,
+   "shift_int_score_sd": 189.73566525095328,
+   "normal_coverage": 91.18882882237854,
+   "normal_coverage_sd": 0.6397617977298533,
+   "normal_rel_width": 43.26362846438691,
+   "normal_rel_width_sd": 1.9447551937497904,
+   "normal_int_score": 1707.6388559920615,
+   "normal_int_score_sd": 30.58594756165622,
+   "min_series_cov": 84.9025069637883
+  }
+ },
+ "detection": {
+  "CUSUM": {
+   "detect_rate": 81.40350877192982,
+   "median_delay": 3.0,
+   "mean_delay": 4.397755862617131,
+   "false_alarm": 7.910761644811077,
+   "n_events": 57.0,
+   "by_kind": {
+    "flood": 68.0,
+    "regime": 97.14,
+    "surge": 86.66
+   }
+  },
+  "KS-14": {
+   "detect_rate": 63.1578947368421,
+   "median_delay": 6.6,
+   "mean_delay": 7.06457033957034,
+   "false_alarm": 7.014936864188226,
+   "n_events": 57.0,
+   "by_kind": {
+    "flood": 44.0,
+    "regime": 100.0,
+    "surge": 67.34
+   }
+  },
+  "Transit-overdue": {
+   "recall_days": 39.07316161498695,
+   "false_alarm": 4.925997459052902
+  }
+ },
+ "causal": {
+  "Always none": {
+   "pehe": NaN,
+   "decision_acc": 90.97058823529412,
+   "regret": 1073.7997933106583,
+   "harmful": 0.0,
+   "value": 3883.663195889466,
+   "regret_sd": 207.92996744919552,
+   "acc_sd": 1.1638415291437418
+  },
+  "Logged planner": {
+   "pehe": NaN,
+   "decision_acc": 54.05882352941177,
+   "regret": 2458.036421341799,
+   "harmful": 36.8921568627451,
+   "value": 5267.899823920606,
+   "regret_sd": 123.70999982990539,
+   "acc_sd": 1.1393236761613876
+  },
+  "Naive": {
+   "pehe": 0.02449056329337474,
+   "decision_acc": 90.97058823529412,
+   "regret": 1073.7997933106583,
+   "harmful": 0.0,
+   "value": 3883.663195889466,
+   "regret_sd": 207.92996744919552,
+   "acc_sd": 1.1638415291437418
+  },
+  "S-learner": {
+   "pehe": 0.014697780068493243,
+   "decision_acc": 89.69607843137256,
+   "regret": 450.57694422506245,
+   "harmful": 3.5686274509803924,
+   "value": 3260.44034680387,
+   "regret_sd": 81.1649297275047,
+   "acc_sd": 1.6454094215580781
+  },
+  "T-learner": {
+   "pehe": 0.02084424013050213,
+   "decision_acc": 70.18627450980394,
+   "regret": 737.2372791784018,
+   "harmful": 13.61764705882353,
+   "value": 3547.100681757209,
+   "regret_sd": 210.61347570643463,
+   "acc_sd": 4.305557105827509
+  },
+  "DR-learner": {
+   "pehe": 0.08268915354966726,
+   "decision_acc": 52.627450980392155,
+   "regret": 1028.199751220153,
+   "harmful": 31.696078431372552,
+   "value": 3838.06315379896,
+   "regret_sd": 234.66884027809078,
+   "acc_sd": 6.11946538462453
+  },
+  "Oracle": {
+   "pehe": 0.0,
+   "decision_acc": 100.0,
+   "regret": 0.0,
+   "harmful": 0.0,
+   "value": 2809.863402578807,
+   "regret_sd": 0.0,
+   "acc_sd": 0.0
+  }
+ },
+ "selected": [
+  "T-learner",
+  "T-learner",
+  "S-learner",
+  "S-learner",
+  "S-learner"
+ ],
+ "ope": {
+  "Naive": 0.013430044271873933,
+  "S-learner": 0.012534017910269018,
+  "T-learner": 0.012311839645509099,
+  "DR-learner": 0.015233180122417894,
+  "Always none": 0.013430044271873933
+ },
+ "cf_coverage": {
+  "none": 72.62745098039215,
+  "expedite": 72.5392156862745,
+  "transfer": 75.51960784313727,
+  "advance": 73.56862745098039
+ },
+ "n_logs": {
+  "train": 3680,
+  "val": 520,
+  "test": 2040
+ },
+ "logged_shares": [
+  0.5872826086956522,
+  0.14331521739130434,
+  0.13010869565217392,
+  0.13929347826086957
+ ],
+ "closed": {
+  "Static safety stock (MA)": {
+   "total_cost": 7268008.546840879,
+   "holding": 3250507.198051504,
+   "shortage": 4017501.3487893743,
+   "action": 0.0,
+   "fill_rate": 97.38041165843842,
+   "stockout_days": 3.2367688022284122,
+   "regret": 818.6925895963534,
+   "harmful": 0.0,
+   "decision_acc": 92.95098039215688,
+   "regret_shift": 2701.7437883565467,
+   "regret_normal": 227.9932813973531,
+   "total_cost_sd": 464192.4284632913,
+   "holding_sd": 168308.2063280775,
+   "shortage_sd": 533664.6104861087,
+   "action_sd": 0.0,
+   "fill_rate_sd": 0.3476195724650068,
+   "stockout_days_sd": 0.3262741050550711,
+   "regret_sd": 136.40412268674416,
+   "harmful_sd": 0.0,
+   "decision_acc_sd": 0.46941233803427895,
+   "regret_shift_sd": 536.6736600291224,
+   "regret_normal_sd": 64.88169642062952,
+   "saving_vs_static": 0.0,
+   "saving_vs_static_sd": 0.0,
+   "prop_minus_this": [
+    -2.4123273509973044,
+    -9.674930788061491,
+    4.8502760860668825
+   ],
+   "prop_wins": 4,
+   "act_share": {
+    "none": 100.0,
+    "expedite": 0.0,
+    "transfer": 0.0,
+    "advance": 0.0
+   }
+  },
+  "ML point forecast": {
+   "total_cost": 8476412.01443473,
+   "holding": 2694366.8543564933,
+   "shortage": 5782045.160078238,
+   "action": 0.0,
+   "fill_rate": 96.2618283175092,
+   "stockout_days": 4.516713091922005,
+   "regret": 1128.8818451517125,
+   "harmful": 0.0,
+   "decision_acc": 91.1764705882353,
+   "regret_shift": 4063.0625203256263,
+   "regret_normal": 208.579132386123,
+   "total_cost_sd": 819461.2692950021,
+   "holding_sd": 128818.50836558334,
+   "shortage_sd": 909552.8755413754,
+   "action_sd": 0.0,
+   "fill_rate_sd": 0.5124538323905997,
+   "stockout_days_sd": 0.5457495611253123,
+   "regret_sd": 236.92099128438448,
+   "harmful_sd": 0.0,
+   "decision_acc_sd": 0.8297211215593543,
+   "regret_shift_sd": 890.4447492315986,
+   "regret_normal_sd": 67.38013690255453,
+   "saving_vs_static": -16.495871729034967,
+   "saving_vs_static_sd": 6.186803442953037,
+   "prop_minus_this": [
+    -14.496362026935829,
+    -21.958601296933494,
+    -7.034122756938165
+   ],
+   "prop_wins": 5,
+   "act_share": {
+    "none": 100.0,
+    "expedite": 0.0,
+    "transfer": 0.0,
+    "advance": 0.0
+   }
+  },
+  "Rule-based planner": {
+   "total_cost": 7695837.292331201,
+   "holding": 2722602.255696908,
+   "shortage": 4510719.410519102,
+   "action": 462515.62611519115,
+   "fill_rate": 97.10328951979545,
+   "stockout_days": 3.713091922005571,
+   "regret": 815.7846321605737,
+   "harmful": 0.9019607843137255,
+   "decision_acc": 92.56862745098039,
+   "regret_shift": 2986.234228259775,
+   "regret_normal": 134.92826670264353,
+   "total_cost_sd": 634129.7023270992,
+   "holding_sd": 124767.94028251123,
+   "shortage_sd": 700970.6061769846,
+   "action_sd": 102473.53316838329,
+   "fill_rate_sd": 0.4263792321612683,
+   "stockout_days_sd": 0.5018616269499051,
+   "regret_sd": 131.05701444371115,
+   "harmful_sd": 0.2584593397345896,
+   "decision_acc_sd": 0.46062784160131637,
+   "regret_shift_sd": 513.0636839220058,
+   "regret_normal_sd": 57.106412461839525,
+   "saving_vs_static": -5.807432572812727,
+   "saving_vs_static_sd": 3.3544227061515937,
+   "prop_minus_this": [
+    -6.69061480590052,
+    -13.724819346224784,
+    0.34358973442374496
+   ],
+   "prop_wins": 4,
+   "act_share": {
+    "none": 96.73529411764706,
+    "expedite": 2.2058823529411766,
+    "transfer": 0.06862745098039216,
+    "advance": 0.9901960784313726
+   }
+  },
+  "Conformal rule (no causal)": {
+   "total_cost": 7799727.9982859995,
+   "holding": 2770131.614863975,
+   "shortage": 4818402.271510476,
+   "action": 211194.1119115486,
+   "fill_rate": 96.88973431038274,
+   "stockout_days": 3.9108635097493036,
+   "regret": 895.4183387695088,
+   "harmful": 5.2745098039215685,
+   "decision_acc": 90.81372549019608,
+   "regret_shift": 3228.8251141720366,
+   "regret_normal": 163.91644237251174,
+   "total_cost_sd": 648170.2670776704,
+   "holding_sd": 113654.2859923278,
+   "shortage_sd": 644608.7407704153,
+   "action_sd": 88433.99242221183,
+   "fill_rate_sd": 0.4174913296306296,
+   "stockout_days_sd": 0.43920475348173016,
+   "regret_sd": 148.11114233912224,
+   "harmful_sd": 0.9628329499472051,
+   "decision_acc_sd": 0.8111226977205117,
+   "regret_shift_sd": 575.7772584051036,
+   "regret_normal_sd": 70.16574640464866,
+   "saving_vs_static": -7.236438719636595,
+   "saving_vs_static_sd": 3.7664879433864877,
+   "prop_minus_this": [
+    -7.7295218654485165,
+    -14.145664731542292,
+    -1.3133789993547427
+   ],
+   "prop_wins": 5,
+   "act_share": {
+    "none": 93.14705882352942,
+    "expedite": 0.9019607843137255,
+    "transfer": 0.0,
+    "advance": 5.950980392156863
+   }
+  },
+  "Causal, no gate": {
+   "total_cost": 7049790.196674792,
+   "holding": 2839237.333638337,
+   "shortage": 3220003.0708548645,
+   "action": 990549.7921815917,
+   "fill_rate": 97.90038568149623,
+   "stockout_days": 2.8662952646239552,
+   "regret": 548.0524196384982,
+   "harmful": 7.0,
+   "decision_acc": 76.2156862745098,
+   "regret_shift": 1580.0278787513885,
+   "regret_normal": 223.36336447274317,
+   "total_cost_sd": 588731.0827106867,
+   "holding_sd": 178094.21618116135,
+   "shortage_sd": 777578.2851108549,
+   "action_sd": 366106.9172921574,
+   "fill_rate_sd": 0.48733831223585794,
+   "stockout_days_sd": 0.5239897867983883,
+   "regret_sd": 229.6831666736135,
+   "harmful_sd": 6.48638890763808,
+   "decision_acc_sd": 12.873103418314022,
+   "regret_shift_sd": 823.1325286125011,
+   "regret_normal_sd": 89.19776045510078,
+   "saving_vs_static": 2.96285077017451,
+   "saving_vs_static_sd": 6.39209896695352,
+   "prop_minus_this": [
+    -0.2301438493364509,
+    -2.4884440012212536,
+    2.028156302548352
+   ],
+   "prop_wins": 3,
+   "act_share": {
+    "none": 73.7843137254902,
+    "expedite": 4.372549019607843,
+    "transfer": 16.352941176470587,
+    "advance": 5.490196078431373
+   }
+  },
+  "Proposed: gated (amber approved)": {
+   "total_cost": 7026775.811741149,
+   "holding": 2802570.6563047627,
+   "shortage": 3408585.845293588,
+   "action": 815619.3101427979,
+   "fill_rate": 97.75978288062824,
+   "stockout_days": 2.9944289693593316,
+   "regret": 545.4494304466809,
+   "harmful": 4.980392156862745,
+   "decision_acc": 86.76470588235293,
+   "regret_shift": 1719.0505047840281,
+   "regret_normal": 176.0576205622013,
+   "total_cost_sd": 609477.8464078351,
+   "holding_sd": 151447.04800653705,
+   "shortage_sd": 862163.9369884166,
+   "action_sd": 339181.78150235116,
+   "fill_rate_sd": 0.5490767406582264,
+   "stockout_days_sd": 0.5494998222944426,
+   "regret_sd": 272.2941734306824,
+   "harmful_sd": 2.977028222842396,
+   "decision_acc_sd": 7.0084326095935445,
+   "regret_shift_sd": 1006.9495152801891,
+   "regret_normal_sd": 77.10908724390163,
+   "saving_vs_static": 3.1964032269101406,
+   "saving_vs_static_sd": 8.101795542058557,
+   "prop_minus_this": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "prop_wins": 0,
+   "act_share": {
+    "none": 85.58823529411765,
+    "expedite": 3.8137254901960786,
+    "transfer": 6.0,
+    "advance": 4.598039215686274
+   },
+   "zones": {
+    "green": {
+     "share": 41.90196078431373,
+     "rec_regret": 346.6501107907726,
+     "fb_regret": 657.9324090038693,
+     "rec_harmful": 1.052046329062913,
+     "rec_acc": 92.72910416228785,
+     "shift_true": 12.990683905210807
+    },
+    "amber": {
+     "share": 39.05882352941177,
+     "rec_regret": 660.4801470512841,
+     "fb_regret": 1311.4932937582566,
+     "rec_harmful": 7.08736989419665,
+     "rec_acc": 80.70532168953706,
+     "shift_true": 32.49296819980331
+    },
+    "red": {
+     "share": 19.03921568627451,
+     "rec_regret": 1226.1132607324917,
+     "fb_regret": 1154.4444759266985,
+     "rec_harmful": 16.387443577343767,
+     "rec_acc": 28.456126911059027,
+     "shift_true": 38.03476660532884
+    }
+   },
+   "auto_action_precision": 86.13632162160513,
+   "auto_actions": 60.2,
+   "escalated": 58.09803921568628
+  },
+  "Proposed: gated (strict)": {
+   "total_cost": 7500722.3442929685,
+   "holding": 2767783.832917399,
+   "shortage": 4339095.667520014,
+   "action": 393842.8438555549,
+   "fill_rate": 97.19489578227619,
+   "stockout_days": 3.5766016713091924,
+   "regret": 762.4213165213847,
+   "harmful": 4.568627450980392,
+   "decision_acc": 90.14705882352942,
+   "regret_shift": 2701.721322078755,
+   "regret_normal": 154.25742471346967,
+   "total_cost_sd": 467245.1454188316,
+   "holding_sd": 120962.64633506653,
+   "shortage_sd": 445849.44565921125,
+   "action_sd": 165474.41980842024,
+   "fill_rate_sd": 0.2980451923560317,
+   "stockout_days_sd": 0.32156569650976413,
+   "regret_sd": 129.33545255951014,
+   "harmful_sd": 0.8263839416818243,
+   "decision_acc_sd": 1.2650478333886188,
+   "regret_shift_sd": 436.51659489795895,
+   "regret_normal_sd": 78.63535985255696,
+   "saving_vs_static": -3.2807274663132753,
+   "saving_vs_static_sd": 4.4274786539381745,
+   "prop_minus_this": [
+    -4.739465325518187,
+    -8.133931625461665,
+    -1.3449990255747089
+   ],
+   "prop_wins": 4,
+   "act_share": {
+    "none": 91.14705882352942,
+    "expedite": 1.764705882352941,
+    "transfer": 1.950980392156863,
+    "advance": 5.137254901960784
+   },
+   "zones": {
+    "green": {
+     "share": 40.6078431372549,
+     "rec_regret": 407.98467818636453,
+     "fb_regret": 730.5543808991857,
+     "rec_harmful": 0.9946442030546464,
+     "rec_acc": 91.62260720782317,
+     "shift_true": 13.402688305615104
+    },
+    "amber": {
+     "share": 39.34313725490196,
+     "rec_regret": 640.1973786290862,
+     "fb_regret": 1253.621954034705,
+     "rec_harmful": 7.447759679398035,
+     "rec_acc": 80.3489310479983,
+     "shift_true": 32.07920932805926
+    },
+    "red": {
+     "share": 20.04901960784314,
+     "rec_regret": 1206.0751621405284,
+     "fb_regret": 1165.7630023330296,
+     "rec_harmful": 15.30142833741022,
+     "rec_acc": 28.277430208009086,
+     "shift_true": 37.726788448513965
+    }
+   },
+   "auto_action_precision": 88.05752003771805,
+   "auto_actions": 62.4,
+   "escalated": 59.392156862745104
+  },
+  "Oracle (myopic)": {
+   "total_cost": 6004613.291488921,
+   "holding": 2766127.8165175985,
+   "shortage": 1724503.4961015948,
+   "action": 1513981.9788697276,
+   "fill_rate": 98.82838238141021,
+   "stockout_days": 2.0557103064066853,
+   "regret": 0.0,
+   "harmful": 0.0,
+   "decision_acc": 100.0,
+   "regret_shift": 0.0,
+   "regret_normal": 0.0,
+   "total_cost_sd": 424007.23549131915,
+   "holding_sd": 124712.68717526358,
+   "shortage_sd": 350374.62256872526,
+   "action_sd": 158358.19428517084,
+   "fill_rate_sd": 0.21263951308373152,
+   "stockout_days_sd": 0.24921218036401094,
+   "regret_sd": 0.0,
+   "harmful_sd": 0.0,
+   "decision_acc_sd": 0.0,
+   "regret_shift_sd": 0.0,
+   "regret_normal_sd": 0.0,
+   "saving_vs_static": 17.405748399839563,
+   "saving_vs_static_sd": 1.204458755762982,
+   "prop_minus_this": [
+    10.221625202522274,
+    2.8954679200038558,
+    17.547782485040692
+   ],
+   "prop_wins": 0,
+   "act_share": {
+    "none": 91.078431372549,
+    "expedite": 6.813725490196077,
+    "transfer": 1.4803921568627452,
+    "advance": 0.6274509803921569
+   }
+  }
+ },
+ "gate_ablation": {
+  "Full gate": {
+   "green_share": 48.431372549019606,
+   "green_regret": 200.8485071312881,
+   "green_harmful": 0.772360442028527,
+   "rest_regret": 929.566273871956
+  },
+  "without agree": {
+   "green_share": 54.94117647058823,
+   "green_regret": 292.75557442186556,
+   "green_harmful": 2.5404759171901894,
+   "rest_regret": 916.2907486576787
+  },
+  "without overlap": {
+   "green_share": 48.76470588235294,
+   "green_regret": 243.369853444046,
+   "green_harmful": 1.0186220655024978,
+   "rest_regret": 906.9227020620419
+  },
+  "without shift": {
+   "green_share": 55.049019607843135,
+   "green_regret": 245.40817271753508,
+   "green_harmful": 1.289581277917629,
+   "rest_regret": 976.5240519943605
+  },
+  "without width": {
+   "green_share": 63.72549019607843,
+   "green_regret": 205.30039731449193,
+   "green_harmful": 0.8975082227629521,
+   "rest_regret": 1286.76843399346
+  },
+  "without cert": {
+   "green_share": 49.33333333333333,
+   "green_regret": 196.76754080881852,
+   "green_harmful": 0.8417609473411837,
+   "rest_regret": 942.6290407631535
+  }
+ },
+ "gate_thresholds": {
+  "q_hi": 0.25194073667429107,
+  "q_max": 0.4268142007714369
+ }
+}
