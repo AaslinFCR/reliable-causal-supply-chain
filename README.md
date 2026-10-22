@@ -66,3 +66,9 @@ All data are simulated; costs are illustrative planning units, not company costs
 the simulator knows every counterfactual outcome, it can grade causal estimates exactly —
 which real logs cannot — but the numbers are evidence about the method under the stated
 simulation assumptions, not measured savings in a real company.
+
+## Results web page
+
+After a run, run_all.py writes report.html (built by rcd/webpage.py): a self-contained page with headline indicators, result tables and embedded figures, which opens in the browser automatically. Add --no-browser to skip opening it.
+
+The figures/ folder holds the five-world figures (seeds 2026-2030) used in the paper and the Phase I report; run_all.py regenerates them.
